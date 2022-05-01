@@ -1,38 +1,152 @@
-.App {
+.rectangle{
+  height:50px;
+  background:#E5103A;
+}
+
+.rectangle2{
+  height:120px;
+  background:#F7BEC8;
+}
+
+#pic{
+  margin-left: 80%;
+  width: 20%;
+  height: 300%;
+  margin-top: -8%;
+}
+
+#center{
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#btn1,#btn2{
+  text-align: center;
+  width: 22%;
+  font-size: 300%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#user{
+  font-size: 500%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+#ltr{
+  text-align: right;
+  direction: rtl;
+}
+
+#tbl{
+  margin: auto;
+  width: 90%;
+  text-align: center;
+  font-size: 200%;
+  /* padding: 10px;   */
+}
+
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+input[type=text], select, textarea {
+width: 100%;
+padding: 12px;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+margin-top: 6px;
+margin-bottom: 16px;
+resize: vertical;
+font-size: 20px;
+}
+
+#btnOK {
+float: left;
+background-color: #1C6BB4;
+color: white;
+padding: 12px 20px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+font-size: 25px;
+
+}
+
+.container {
+border-radius: 5px;
+background-color: #f2f2f2;
+padding: 20px;
+font-size: 25px;
+}
+
+.container {
+  padding: 50px;
+  background-color: #fffefe;
+  margin: auto;
+  width: 50%;
+} 
+
+
+/* style inputs and link buttons */
+input,
+.btn {
+width: 100%;
+padding: 12px;
+margin: 5px 0;
+font-size: 17px;
+line-height: 25px;
+}
+/* style the submit button */
+input[type=submit] {
+background-color: #1C6BB4;
+color: white;
+}
+input[type=submit]:hover {
+background-color: #E5103A;
+}
+
+/* Two-column layout */
+.col {
+float: left;
+width: 50%;
+padding: 0 50px;
+}
+
+/* Responsive layout - when the screen is less than 650px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 650px) {
+.col {
+  width: 100%;
+  margin-top: 0;
+}
+/* hide the vertical line */
+.vl {
+  display: none;
+}
+/* show the hidden text on small screens */
+.hide-md-lg {
+  display: block;
+  text-align: center;
+}
+}
+
+.center{
+  margin: auto;
+  width: 50%;
+  padding: 5px;
+}
+
+input[type=text] {
+  box-sizing: border-box;
+  border: none;
+  background-color: #d6d1d1;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+input[type=password] {
+  box-sizing: border-box;
+  border: none;
+  background-color: #d6d1d1;
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+* {
+  margin: 0;
+  padding: 0;
 }
