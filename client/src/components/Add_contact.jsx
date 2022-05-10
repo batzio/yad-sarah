@@ -49,6 +49,4 @@ export const Add_contact = (props) => {
             </div>
 
             )
-                        
-
 }
