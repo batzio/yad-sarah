@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 export const User_name = (props) => {
 
 
@@ -11,7 +13,7 @@ return(
         <br/>
         <h1 id="user">שלום שם משתמש</h1>
         <br/>
-        <button type="button" id="btn1"> רשימת מתנדבים</button>
+        <Link to='/search'> רשימת מתנדבים</Link>
         <br/>
         <br/>
         <button type="button" id="btn2"> חיפוש מתנדבים</button>
