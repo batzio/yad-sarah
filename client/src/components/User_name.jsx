@@ -13,12 +13,10 @@ export const User_name = (props) => {
                 <br />
                 <h1 id="user">שלום שם משתמש</h1>
                 <br />
-                <Link to='/search'>  <button type="button" id="btn2"> רשימת מתנדבים</button></Link>
+                <Link to='/list'> רשימת מתנדבים</Link>
                 <br />
                 <br />
-
-                <Link to='/search'>חיפוש מתנדבים </Link>
-
+                <Link to='/filter'> חיפוש מתנדבים</Link>
             </div>
         </div>
 

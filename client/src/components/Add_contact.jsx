@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 export const Add_contact = (props) => {
 
     return (
@@ -43,12 +45,12 @@ export const Add_contact = (props) => {
                         <textarea id="subject" name="subject" placeholder="הקלד כאן"></textarea>
                     </form>
 
-                    <button id="btnOK" type="button">אישור</button>
+                    <Link to='/List'><button id="btnOK" type="button">אישור</button></Link>
                 </div>
             </div>
-            </div>
+        </div>
 
-            )
-                        
+    )
+
 
 }

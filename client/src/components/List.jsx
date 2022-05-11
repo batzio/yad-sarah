@@ -1,4 +1,6 @@
-export const Filter = (props) => {
+import { Link } from "react-router-dom"
+
+export const List = (props) => {
 
 
     return (
@@ -29,7 +31,7 @@ export const Filter = (props) => {
                         {/* <button> ערוך</button> */}
                         {/* <button> מחק</button>  */}
                     </table>
-                    <button id="add_contact">הוספת איש קשר</button>
+                    <Link to='/add-contact'> <button id="add_contact">הוספת איש קשר</button></Link>
                 </div>
             </div>
 
