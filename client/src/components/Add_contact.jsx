@@ -51,10 +51,4 @@ export const Add_contact = (props) => {
         </div>
 
     )
-
-<<<<<<< HEAD
-            )
-=======
-
->>>>>>> main
 }
