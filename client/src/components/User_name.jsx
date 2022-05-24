@@ -11,12 +11,11 @@ export const User_name = (props) => {
             </div>
             <div id="center">
                 <br />
-                <h1 id="user">שלום שם משתמש</h1>
                 <br />
-                <Link to='/list'> רשימת מתנדבים</Link>
+                <Link to='/list' class="button"> רשימת מתנדבים</Link>
                 <br />
                 <br />
-                <Link to='/filter'> חיפוש מתנדבים</Link>
+                <Link to='/filter' class="button"> חיפוש מתנדבים</Link>
             </div>
         </div>
 

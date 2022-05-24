@@ -9,14 +9,15 @@ import { Send_file } from './components/Send_file';
 
 
 
+
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
+          <Route path="/" exact element={<Login />} />
           <Route path="user_name" element={<User_name />} />
           <Route path="list" element={<List />} />
-          <Route path="login" element={<Login />} />
           <Route path="filter" element={<Filter />} />
           <Route path="add-contact" element={<Add_contact />} />
           <Route path="send-file" element={<Send_file />} />

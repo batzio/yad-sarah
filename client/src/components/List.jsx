@@ -31,7 +31,7 @@ export const List = (props) => {
                         {/* <button> ערוך</button> */}
                         {/* <button> מחק</button>  */}
                     </table>
-                    <Link to='/add-contact'> <button id="add_contact">הוספת איש קשר</button></Link>
+                    <Link to='/add-contact'> <button  id="btnOK">הוספת איש קשר</button></Link>
                 </div>
             </div>
 
