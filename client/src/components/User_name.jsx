@@ -12,10 +12,15 @@ export const User_name = (props) => {
             <div id="center">
                 <br />
                 <br />
-                <Link to='/list' class="button"> רשימת מתנדבים</Link>
                 <br />
                 <br />
-                <Link to='/filter' class="button"> חיפוש מתנדבים</Link>
+                <br />
+                
+                <a href='/list'><button class="button_list" type="button">רשימת מתנדבים</button></a>
+                <br />
+    
+                <a href='/filter'><button class="button_list" type="button">חיפוש מתנדבים</button></a>
+
             </div>
         </div>
 
