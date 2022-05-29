@@ -229,9 +229,6 @@ select {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-<<<<<<< Updated upstream
-    font-size: 25px;
-=======
     font-size: 25px;    
 }
 
@@ -241,9 +238,7 @@ select {
   background-color:  white;
   border: none;
   font-size: 20px;
-  direction: rtl;
   
->>>>>>> Stashed changes
 }
 
 
