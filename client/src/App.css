@@ -66,22 +66,24 @@ border: none;
 border-radius: 4px;
 cursor: pointer;
 font-size: 25px;
+margin-left: 10%;
 
 }
 
-.container {
+/* .container {
 border-radius: 5px;
 background-color: #f2f2f2;
 padding: 20px;
-font-size: 25px;
-}
 
-.container {
+} */
+
+ .container {
   padding: 50px;
   background-color: #fffefe;
   margin: auto;
   width: 50%;
-} 
+  font-size: 25px;
+}  
 
 
 /* style inputs and link buttons */
@@ -146,21 +148,25 @@ input[type=password] {
   color: white;
 }
 
-* {
+/* * {
   margin: 0;
   padding: 0;
   font-family: Arial;
-}
  
+} */
+.filter1{
+  margin: auto;
+  width: 90%;
+  text-align: center;
+  font-size: 200%;
+
+}
+
 #search {
   display: block;
   justify-content: center;
-  align-items: center;
-  height: 200px;
-  border: 3px solid green;
-  margin-left: 25%;
-  margin-right: 25%;
 }
+
 
 label {
   align-items: center;
@@ -213,7 +219,7 @@ select {
     border: 1px solid rgb(239, 240, 239); 
     color: white; /* White text */
     width: 20%; /* Set a width if needed */
-    display: block; /* Make the buttons appear below each other */
+    /* display: block; Make the buttons appear below each other */
     margin-left:50px;
     margin-right:50px; 
     text-align: center;
@@ -223,7 +229,21 @@ select {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+<<<<<<< Updated upstream
     font-size: 25px;
+=======
+    font-size: 25px;    
+}
+
+.homeBtn{
+  direction: ltr;
+  color:  #1f6acc;
+  background-color:  white;
+  border: none;
+  font-size: 20px;
+  direction: rtl;
+  
+>>>>>>> Stashed changes
 }
 
 
