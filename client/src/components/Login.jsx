@@ -28,13 +28,12 @@ export const Login = (props) => {
             <div className="container">
                 <form action="/action_page.php">
                     <div className="row">
-                        <h2 style={{ textAlign: "center" }}>התחברות </h2>
                         <div className="center">
                             <div className="hide-md-lg">
                             </div>
                             <input value={username} onChange={(e) => setUsername(e.target.value)} type="text" name="username" placeholder="שם משתמש" required />
                             <input value={password} onChange={(e) => setPassword(e.target.value)}  type="password" name="password" placeholder="קוד" required />
-                            <button className="button" onClick={handleClick}>התחברות</button>
+                            <button className="button_login" onClick={handleClick}>התחברות</button>
                         </div>
                     </div>
                 </form>
