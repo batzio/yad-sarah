@@ -8,9 +8,9 @@ export const Login = (props) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
-    const navigate = useNavigate();
 
-    const handleClick = async (e) => {
+    const navigate = useNavigate();
+    async function handleClick(e) {
         e.preventDefault();
         const res = await signInWithEmailAndPassword(auth, username, password);
         console.log(res)
