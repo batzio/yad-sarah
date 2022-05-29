@@ -7,9 +7,7 @@ import { firestore } from "../firebase/firebase";
 export const Add_contact = (props) => {
 
     const [nameValue, setNameValue] = useState("");
-
     const contactsRef = collection(firestore, 'Contacts');
-
     const handleClick = async (e) => {
         e.preventDefault();
         // send object to FirebaseError
