@@ -34,17 +34,10 @@ export const Login = (props) => {
                             </div>
                             <input value={username} onChange={(e) => setUsername(e.target.value)} type="text" name="username" placeholder="שם משתמש" required />
                             <input value={password} onChange={(e) => setPassword(e.target.value)}  type="password" name="password" placeholder="קוד" required />
-                            <button onClick={handleClick}>התחברות</button>
+                            <button className="button" onClick={handleClick}>התחברות</button>
                         </div>
                     </div>
                 </form>
-            </div>
-            <div className="bottom-container">
-                <div className="row">
-                    <div className="col">
-                        <a href="#" style={{ color: "#1C6BB4" }} className="btn">שכחת סיסמא?</a>
-                    </div>
-                </div>
             </div>
         </div>
     )
