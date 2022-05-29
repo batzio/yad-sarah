@@ -47,7 +47,11 @@ export const Filter = (props) => {
                 <br />
                 <br />
                 <br />
+<<<<<<< Updated upstream
                 <Link to='/send_file'><button id="btnOK" type="button">חפש</button></Link>
+=======
+                <Link to='/send_file'> <button id="btnOK">      חפש      </button></Link>
+>>>>>>> Stashed changes
 
 
             </form>
