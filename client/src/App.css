@@ -226,7 +226,7 @@ select {
     margin: auto;
     text-decoration-line:none;
     padding: 12px 20px;
-    border: none;
+    border: block;
     border-radius: 4px;
     cursor: pointer;
     font-size: 25px;    
