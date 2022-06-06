@@ -1,8 +1,9 @@
 import { FirebaseError } from "firebase/app";
 import { collection, doc, setDoc } from "firebase/firestore";
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, Navigate } from "react-router-dom"
 import { firestore } from "../firebase/firebase";
+import { useNavigate } from "react-router-dom";
 
 export const Add_contact = (props) => {
 
@@ -14,13 +15,14 @@ export const Add_contact = (props) => {
     const [phoneValue, setPhoneValue]= useState("");
     const [POValue, setPOValue]= useState("");
     const [notes, setNotes]= useState("");
+    const navigate = useNavigate();
 
     const contactsRef = collection(firestore, 'Contacts');
     const handleClick = async (e) => {
         e.preventDefault();
         // send object to FirebaseError
         await setDoc(doc(contactsRef), { name: nameValue,domain: domainValue, nameOfCoordinator: cnameValue, emailOfCoordinator: coEmail, cellPhone: cphoneValue, phone: phoneValue, po:POValue, notes: notes})
-        // navigate to list
+        navigate("/list");
     }
 
     return (

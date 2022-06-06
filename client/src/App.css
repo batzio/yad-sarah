@@ -224,7 +224,7 @@ select {
     margin-right:50px; 
     text-align: center;
     margin: auto;
-    text-decoration-line:none;
+    /* text-decoration-line:none; */
     padding: 12px 20px;
     border: block;
     border-radius: 4px;

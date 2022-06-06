@@ -1,6 +1,28 @@
 import { Link } from "react-router-dom"
+import { FirebaseError } from "firebase/app";
+import { collection, doc, getDoc, getDocs, query, setDoc } from "firebase/firestore";
+import React, { useState } from "react"
+import { Link, Navigate } from "react-router-dom"
+import { firestore } from "../firebase/firebase";
+import { useNavigate } from "react-router-dom";
+import { async } from "@firebase/util";
 
 export const List = (props) => {
+
+    // const contactRef = collection(firestore,"Contacts");
+    // const [contactObject, setContactObject] = useState("");
+    // const getData = async () => {
+    //     var q = query(contactRef);
+
+    //     const snapshot = await getDocs(q)
+    //     snapshot.forEach(doc =>
+    //         {
+    //             console.log(doc.data());
+    //             setContactObject(prev => [...prev, doc.data()])
+    //         })
+    // }
+
+ 
     return (
         <div>
             <div id="ltr">
