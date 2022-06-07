@@ -43,7 +43,7 @@ export const List = (props) => {
                             <th> שם עמותה</th>
                             <th> תחום</th>
                             <th> מחוז</th>
-                            <th> כתובת</th>
+                            <th> עיר</th>
                             <th> שם רכז העמותה</th>
                             <th> מייל הרכז</th>
                             <th> פלאפון נייד</th>
