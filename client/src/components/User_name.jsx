@@ -11,9 +11,9 @@ export const User_name = (props) => {
             </div>
             <div id="center">
                 <br /> <br /><br /><br /><br />
-                <Link to='/list'><button class="button_list" type="button">רשימת מתנדבים</button></Link>
+                <Link to='/list'><button className="button_list" type="button">רשימת מתנדבים</button></Link>
                 <br /><br />
-                <a href='/filter'><button class="button_list" type="button">חיפוש מתנדבים</button></a>
+                <a href='/filter'><button className="button_list" type="button">חיפוש מתנדבים</button></a>
 
             </div>
         </div>

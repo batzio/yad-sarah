@@ -1,6 +1,16 @@
+// import { collection, getDocs, query, where } from "firebase/firestore";
 import { Link } from "react-router-dom"
+// import { firestore } from "../firebase/firebase";
 
 export const Filter = (props) => {
+
+    // const contactRef = collection(firestore, "Contacts");
+
+    // const handleSearch = () => {
+    //     var q = query(contactRef, where());
+
+    //     const snapshot = await getDocs(q)
+    // }
 
     return (
 
@@ -11,18 +21,16 @@ export const Filter = (props) => {
             </div>
             <div>
                     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-                    <Link to='/user_name'><button class="homeBtn"><i class="fa fa-home"></i> מסך הבית</button></Link>
+                    <Link to='/user_name'><button className="homeBtn"><i className="fa fa-home"></i> מסך הבית</button></Link>
                     </div>
             <div className="container">
                 <form id="filter1">
                     <br />
-                    <select name="sdomain" id="sdomain">
-                        <option value="" disabled selected>:תחום התנדבות</option>
+                    <select name="sdomain" id="sdomain" placeholder=",juo">
                         <option value="1">לוגיסטיקה</option>
                     </select>
                     <br />
                     <select name="sarea" id="sarea">
-                        <option value="" disabled selected>:מחוז</option>
                         <option value="1">דרום</option>
                         <option value="2">ירושלים</option>
                         <option value="3">מרכז</option>
@@ -31,7 +39,6 @@ export const Filter = (props) => {
                     </select>
                     <br />
                     <select name="scity" id="scity">
-                        <option value="" disabled selected>:עיר</option>
                         <option value="0">ראשון לציון</option>
                         <option value="1">ירושלים</option>
                         <option value="2">אשדוד</option>
@@ -42,7 +49,7 @@ export const Filter = (props) => {
                     <br />
                     <br />
 
-                    <Link to='/send_file'><button id="btnOK" type="button">חפש</button></Link>
+                     <button id="btnOK" type="button" >חפש</button> 
                 
 
                 </form>

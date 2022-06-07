@@ -1,29 +1,26 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
-import React, {useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase/firebase";
 
 export const Login = (props) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [error, setError] = useState("")
-
-
+    const [error, setError] = useState("");
     const navigate = useNavigate();
+
     async function handleClick(e) {
         e.preventDefault();
-        try{
-        setError("")
-        const res = await signInWithEmailAndPassword(auth, username, password);
-        // console.log(res)
-        navigate('/user_name')
+        try {
+            setError("")
+            const res = await signInWithEmailAndPassword(auth, username, password);
+            navigate('/user_name')
         }
-        catch(err)
-        {
-            setError(err.message)
+        catch (e) {
+            setError("סיסמה או שם משתמש שגוי")
         }
     }
-    
+
     return (
         <div dir="rtl">
             <div className="rectangle"></div>
@@ -38,9 +35,9 @@ export const Login = (props) => {
                             <div className="hide-md-lg">
                             </div>
                             <input value={username} onChange={(e) => setUsername(e.target.value)} type="text" name="username" placeholder="שם משתמש" required />
-                            <input value={password} onChange={(e) => setPassword(e.target.value)}  type="password" name="passwor d" placeholder="קוד" required />
+                            <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" name="passwor d" placeholder="קוד" required />
                             <button className="button_login" onClick={handleClick}>התחברות</button>
-                            <p class="error"></p>
+                            {error ? <p className="error">{error}</p> : null}
                         </div>
                     </div>
                 </form>
