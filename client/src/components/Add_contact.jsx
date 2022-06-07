@@ -9,6 +9,8 @@ export const Add_contact = (props) => {
 
     const [nameValue, setNameValue] = useState("");
     const [domainValue, setDomainValue] = useState("");
+    const [address, setAddress]= useState("");
+    const [area, setArea]= useState("");
     const [cnameValue, setCnameValue]= useState("");
     const [coEmail, setCoEmail]= useState("");
     const [cphoneValue, setCphoneValue]= useState("");
@@ -21,7 +23,7 @@ export const Add_contact = (props) => {
     const handleClick = async (e) => {
         e.preventDefault();
         // send object to FirebaseError
-        await setDoc(doc(contactsRef), { name: nameValue,domain: domainValue, nameOfCoordinator: cnameValue, emailOfCoordinator: coEmail, cellPhone: cphoneValue, phone: phoneValue, po:POValue, notes: notes})
+        await setDoc(doc(contactsRef), { name: nameValue,domain: domainValue,district:area, city:address, nameOfCoordinator: cnameValue, emailOfCoordinator: coEmail, cellPhone: cphoneValue, phone: phoneValue, po:POValue, notes: notes})
         navigate("/list");
     }
 
@@ -54,11 +56,21 @@ export const Add_contact = (props) => {
                         <input type="text1" id="mname" name="mail" placeholder="הקלד כאן" value={coEmail} onChange={(e) => setCoEmail(e.target.value)}/>
 
                         <label for="address">כתובת העמותה:</label>
-                        <select id="address" name="address">
+                        <select id="address" name="address" value={address} onChange={(e) => setAddress(e.target.value)}>
                             <option value="" disabled selected>בחר כתובת</option>
-                            <option value="Jerusalem">ירושלים</option>
-                            <option value="Beit_shemesh">בית שמש</option>
-                            <option value="haifa">חיפה</option>
+                            <option value="ירושלים">ירושלים</option>
+                            <option value="בית שמש">בית שמש</option>
+                            <option value="חיפה">חיפה</option>
+                        </select>
+                        <label for="address">מחוז:</label>
+                        <select id="address" name="address" value={area} onChange={(e) => setArea(e.target.value)}>
+                        <option value="" disabled selected>בחר מחוז</option>
+                        <option value="דרום">דרום</option>
+                        <option value="ירושלים">ירושלים</option>
+                        <option value="מרכז">מרכז</option>
+                        <option value="צפון">צפון</option>
+                        <option value="שרון">שרון</option>
+                           
                         </select>
 
                         <label for="mbname">תא דואר:</label>

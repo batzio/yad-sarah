@@ -42,6 +42,8 @@ export const List = (props) => {
                         <tr>
                             <th> שם עמותה</th>
                             <th> תחום</th>
+                            <th> מחוז</th>
+                            <th> כתובת</th>
                             <th> שם רכז העמותה</th>
                             <th> מייל הרכז</th>
                             <th> פלאפון נייד</th>
@@ -55,6 +57,8 @@ export const List = (props) => {
                             <tr key={i}>
                                 <td>{obj.name}</td>
                                 <td>{obj.domain}</td>
+                                <td>{obj.district}</td>
+                                <td>{obj.city}</td>
                                 <td>{obj.nameOfCoordinator}</td>
                                 <td>{obj.emailOfCoordinator}</td>
                                 <td>{obj.cellPhone}</td>
