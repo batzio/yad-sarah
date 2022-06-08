@@ -27,10 +27,12 @@ export const Filter = (props) => {
                 <form id="filter1">
                     <br />
                     <select name="sdomain" id="sdomain" placeholder=",juo">
+                    <option value="" disabled selected>בחר תחום</option>
                         <option value="1">לוגיסטיקה</option>
                     </select>
                     <br />
                     <select name="sarea" id="sarea">
+                    <option value="" disabled selected>בחר מחוז</option>
                         <option value="1">דרום</option>
                         <option value="2">ירושלים</option>
                         <option value="3">מרכז</option>
@@ -39,6 +41,7 @@ export const Filter = (props) => {
                     </select>
                     <br />
                     <select name="scity" id="scity">
+                    <option value="" disabled selected>בחר עיר</option>
                         <option value="0">ראשון לציון</option>
                         <option value="1">ירושלים</option>
                         <option value="2">אשדוד</option>
