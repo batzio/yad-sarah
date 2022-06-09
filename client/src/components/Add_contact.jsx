@@ -1,4 +1,3 @@
-import { FirebaseError } from "firebase/app";
 import { collection, doc, setDoc } from "firebase/firestore";
 import { useState } from "react"
 import { Link, Navigate } from "react-router-dom"

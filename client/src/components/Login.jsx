@@ -35,7 +35,7 @@ export const Login = (props) => {
                             <div className="hide-md-lg">
                             </div>
                             <input value={username} onChange={(e) => setUsername(e.target.value)} type="text" name="username" placeholder="שם משתמש" required />
-                            <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" name="passwor d" placeholder="קוד" required />
+                            <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" name="passwor d" placeholder="סיסמה" required />
                             <button className="button_login" onClick={handleClick}>התחברות</button>
                             {error ? <p className="error">{error}</p> : null}
                         </div>

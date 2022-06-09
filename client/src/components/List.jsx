@@ -70,25 +70,15 @@ export const List = (props) => {
                     </tbody>
                 </table>
 
-            {/*  <tbody id="table-body"></tbody>  */}
-            {/*  <td><button> ערוך</button></td> */}
-            {/* <td button> מחק</button></td>  */}
-            {/* <button> ערוך</button> */}
-            {/* <button> מחק</button>  */}
-            <Link to='/add-contact'><button id="btnOK" type="button">הוספת איש קשר</button></Link>
+                {/*  <tbody id="table-body"></tbody>  */}
+                {/*  <td><button> ערוך</button></td> */}
+                {/* <td button> מחק</button></td>  */}
+                {/* <button> ערוך</button> */}
+                {/* <button> מחק</button>  */}
+                <Link to='/add-contact'><button id="btnOK" type="button">הוספת איש קשר</button></Link>
 
-        </div>
-        {/* {
-        contactRef.map((object, index) => (
-            <div className="req" key={index}>
-                <div>
-                    {object.name + " " + object.domain + " " + object.nameOfCoordinator + " " + object.emailOfCoordinator + " " + object.cellPhone + " " + object.phone+ " " + object.notes }
-                </div>
-                <div>{object.source}</div>
             </div>
-        )) 
-        } */}
-    </div>
+        </div>
 
-);
+    )
 }
