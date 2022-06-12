@@ -70,7 +70,6 @@ export const Filter = (props) => {
                 <form id="filter1">
                     <br />
                     <select name="sdomain" id="sdomain" placeholder=",juo">
-                    <option value="" disabled selected>בחר תחום</option>
                         <option value="1">לוגיסטיקה</option>
                     </select>
                     <br />
