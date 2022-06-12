@@ -78,7 +78,10 @@ textarea {
   font-size: 20px;
   
 }
-
+#btn_del{
+  border-color:white;
+  background-color: white;
+}
 
 #btnOK {
   float: left;

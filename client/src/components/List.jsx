@@ -1,27 +1,46 @@
 import { FirebaseError } from "firebase/app";
-import { collection, doc, getDoc, getDocs, query, setDoc } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs, query, setDoc, deleteDoc } from "firebase/firestore";
 import React, { useEffect, useState } from "react"
 import { Link, Navigate } from "react-router-dom"
 import { firestore } from "../firebase/firebase";
 import { useNavigate } from "react-router-dom";
+import { async } from "@firebase/util";
+import { Icon } from '@iconify/react';
+
 
 export const List = (props) => {
 
     const contactRef = collection(firestore, "Contacts");
     const [contactArray, setContactArray] = useState([]);
+    const [callData, setCallData] = useState("");
+    const navigate = useNavigate();
+
+    const handleDelete = async (id) => {
+        await deleteDoc(doc(firestore, "Contacts", id));
+        setCallData(prev => {
+            const index = prev.findIndex(item => item.id === id);
+            prev.splice(index, 1);
+            return [...prev];
+        })
+         window.location.reload(false);
+        navigate("/list");
+    };
+
     const getData = async () => {
         var q = query(contactRef);
-
-        const snapshot = await getDocs(q)
-        snapshot.forEach(doc => {
+        const callData = await getDocs(q)
+        callData.forEach(doc => {
             console.log(doc.data());
-            setContactArray(prev => [...prev, doc.data()])
+            setContactArray(prev => [...prev, { ...doc.data(), id: doc.id }])
         })
     }
 
     useEffect(() => {
         getData();
     }, [])
+    //delete
+
+
 
 
     return (
@@ -65,6 +84,8 @@ export const List = (props) => {
                                 <td>{obj.phone}</td>
                                 <td>{obj.po}</td>
                                 <td>{obj.notes}</td>
+                                <td><button className="btn_del" onClick={() => handleDelete(obj.id)} >
+                                </button></td>
                             </tr>
                         ))}
                     </tbody>
