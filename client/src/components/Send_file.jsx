@@ -1,9 +1,14 @@
 import React from 'react';
 import { Link, Navigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
+
 
 import emailjs from '@emailjs/browser';
 
 export const Send_file = (props) => {
+
+    const navigate = useNavigate();
+
 
     const sendEmail = (e) => {
         e.preventDefault();
@@ -11,8 +16,12 @@ export const Send_file = (props) => {
         emailjs.sendForm('service_lbg475p', 'template_wv4rpeu', e.target, '5LATqiCDbPCcir3ur')
             .then((result) => {
                 console.log(result.text);
+                alert("ההודעה נשלחה בהצלחה", result.text);
+                navigate("/user_name");
             }, (error) => {
                 console.log(error.text);
+                alert("ארעה שגיאה נסה שנית", error.text);
+
             });
     };
 
@@ -29,23 +38,23 @@ export const Send_file = (props) => {
             </div>
             <div className='container'>
                 <form onSubmit={sendEmail}>
-                    
-                    <label>Email</label>
-                    <input type="email" name="user_email" />
+                 
+                    <label>אימייל:</label>
+                    <textarea name="user_email" />
                     <label>תפקיד:</label>
                     <textarea name="title" />
                     <label>תאור התפקיד:</label>
                     <textarea name="job_title" />
                     <label>דרישות התפקיד:</label>
                     <textarea name="requiments" />
-                    <label>ימים ושעות התנדבות:</label>
+                    <label>ימים ושעות התנדבות</label>
                     <textarea name="hour" />
-                    <input type="submit" value="שלח" />
-                    
+                    <input type="submit" value="שלח" id="btn_send" />
 
                 </form>
 
             </div>
+
         </div>
 
     );
