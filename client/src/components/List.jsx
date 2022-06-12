@@ -69,12 +69,6 @@ export const List = (props) => {
                         ))}
                     </tbody>
                 </table>
-
-                {/*  <tbody id="table-body"></tbody>  */}
-                {/*  <td><button> ערוך</button></td> */}
-                {/* <td button> מחק</button></td>  */}
-                {/* <button> ערוך</button> */}
-                {/* <button> מחק</button>  */}
                 <Link to='/add-contact'><button id="btnOK" type="button">הוספת איש קשר</button></Link>
 
             </div>

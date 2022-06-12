@@ -129,17 +129,7 @@ input[type=submit] {
 
 
 }
-/* #btn_send{
-  float: left;
-  background-color: #1C6BB4;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 25px;
-  margin-left: 10%;
-} */
+
 
 /* input[type=submit]:hover {
   background-color: #E5103A;
