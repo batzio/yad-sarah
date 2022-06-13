@@ -8,6 +8,10 @@ import { async } from "@firebase/util";
 import { Icon } from '@iconify/react';
 
 
+
+
+
+
 export const List = (props) => {
 
     const contactRef = collection(firestore, "Contacts");
@@ -42,6 +46,17 @@ export const List = (props) => {
 
 
 
+    const handleClick = async (e) => {
+        e.preventDefault();
+        // const res = await db.collection('Contacts').doc('DC').delete();
+        // var docRef = Firebase.firestore().collection("Rooms").doc("bsYNIwEkjP237Ela6fUp").collection("Messages");
+
+        // // delete the document
+        // docRef.doc("lKjNIwEkjP537Ela6fhJ").delete();
+        
+    }
+
+
 
     return (
         <div>
@@ -69,6 +84,7 @@ export const List = (props) => {
                             <th> טלפון נייח</th>
                             <th>ת.ד.</th>
                             <th>הערות</th>
+                            <th>פעולות</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -84,8 +100,11 @@ export const List = (props) => {
                                 <td>{obj.phone}</td>
                                 <td>{obj.po}</td>
                                 <td>{obj.notes}</td>
-                                <td><button className="btn_del" onClick={() => handleDelete(obj.id)} >
-                                </button></td>
+                                <td><button id="btnDel" onClick={() => handleDelete(obj.id)} ><Icon icon="icomoon-free:bin" color="black" /></button>
+                                <button id="btnEdit" onClick={() => handleDelete(obj.id)} ><Icon icon="bxs:edit" color="black" /></button>
+
+                                
+                                </td>
                             </tr>
                         ))}
                     </tbody>

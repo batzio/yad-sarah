@@ -78,10 +78,7 @@ textarea {
   font-size: 20px;
   
 }
-#btn_del{
-  border-color:white;
-  background-color: white;
-}
+
 
 #btnOK {
   float: left;
@@ -94,6 +91,26 @@ textarea {
   font-size: 25px;
   margin-left: 10%;
 
+}
+
+#btnDel{
+  border: none;
+  cursor: pointer;
+  background-color: #c8c6c6;
+  font-size: 20px;
+  border-radius: 4px;
+margin-right: 1px;
+  
+}
+
+#btnEdit{
+  border: none;
+  cursor: pointer;
+  background-color: #c8c6c6;
+  font-size: 20px;
+  border-radius: 4px;
+margin-right: 1px;
+  
 }
 
 
@@ -302,3 +319,5 @@ font-size: 13px;
   /* font-style: italic; */
   font-weight: bold;
 }
+
+
