@@ -71,7 +71,7 @@ export const List = (props) => {
                     <Link to='/user_name'><button className="homeBtn"><i className="fa fa-home"></i> מסך הבית</button></Link>
                 </div>
 
-                <table>
+                <table id="tb">
                     <thead>
                         <tr>
                             <th> שם עמותה</th>
