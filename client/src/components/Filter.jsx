@@ -65,9 +65,9 @@ export const Filter = ({ setEmailList }) => {
                     <br />
                     <select name="sdomain" id="sdomain" placeholder=",juo" value={domain} onChange={(e) => setDomain(e.target.value)}>
                         <option value="" disabled selected>בחר תחום</option>
-                        <option value="1">לוגיסטיקה</option>
-                        <option value="1">אינסטלציה</option>
-                        <option value="1">חשמל</option>
+                        <option value="לוגיסטיקה">לוגיסטיקה</option>
+                        <option value="אינסטלציה">אינסטלציה</option>
+                        <option value="חשמל">חשמל</option>
 
 
                     </select>
