@@ -11,6 +11,14 @@
 #pic {
   margin-left: 80%;
   width: 20%;
+  height: 100%;
+  margin-top: -5%;
+  margin-bottom: -10%;
+}
+
+#pic1 {
+  margin-left: 80%;
+  width: 20%;
   height: 300%;
   margin-top: -8%;
 }
@@ -38,10 +46,11 @@
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 100%;
-  margin: auto;
   width: 90%;
-  font-size: 25px;
+  margin: auto;
+  font-size: 20px;
+  margin-right: 2%;
+  margin-top: 5%;
 
 }
 
@@ -54,7 +63,10 @@ th {
 #tb thead tr{
   background:#c8c6c6;
 }
+#sidebar{
+  background-color: #E5103A;
 
+}
 /* tr:nth-child(even) {
   background-color: #dddddd;
 }
@@ -94,8 +106,9 @@ textarea {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 25px;
+  font-size: 20px;
   margin-left: 10%;
+  margin-bottom: 1%;
 
 }
 
@@ -103,7 +116,7 @@ textarea {
   border: none;
   cursor: pointer;
   background-color: #c8c6c6;
-  font-size: 20px;
+  font-size: 15px;
   border-radius: 4px;
 margin-right: 1px;
   
@@ -156,12 +169,6 @@ input[type=submit] {
 
 }
 
-
-/* input[type=submit]:hover {
-  background-color: #E5103A;
-} */
-
-/* Two-column layout */
 .col {
   float: left;
   width: 50%;
@@ -219,12 +226,15 @@ input[type=password] {
 #search {
   display: block;
   justify-content: center;
+  
 }
 
 
 label {
   align-items: center;
   justify-content: center;
+  text-align: right;
+  direction: rtl;
 }
 
 select {
@@ -324,6 +334,10 @@ font-size: 13px;
   color: red;
   /* font-style: italic; */
   font-weight: bold;
+}
+
+.sidenav---_u0En{
+  background: black
 }
 
 

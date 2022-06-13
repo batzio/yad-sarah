@@ -14,7 +14,7 @@ export const Login = (props) => {
         try {
             setError("")
             const res = await signInWithEmailAndPassword(auth, username, password);
-            navigate('/user_name')
+            navigate('/list')
         }
         catch (e) {
             setError("סיסמה או שם משתמש שגוי")
@@ -25,7 +25,7 @@ export const Login = (props) => {
         <div dir="rtl">
             <div className="rectangle"></div>
             <div className="rectangle2">
-                <img id="pic"
+                <img id="pic1"
                     src="https://serviced.co.il/wp-content/uploads/2022/01/%D7%A6%D7%95%D7%A8-%D7%A7%D7%A9%D7%A8-%D7%A9%D7%99%D7%A8%D7%95%D7%AA-%D7%9C%D7%A7%D7%95%D7%97%D7%95%D7%AA-%D7%99%D7%93-%D7%A9%D7%A8%D7%94.png" />
             </div>
             <div className="container">

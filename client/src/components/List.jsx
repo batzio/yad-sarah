@@ -6,6 +6,8 @@ import { firestore } from "../firebase/firebase";
 import { useNavigate } from "react-router-dom";
 import { async } from "@firebase/util";
 import { Icon } from '@iconify/react';
+import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
+import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 
 
 
@@ -26,7 +28,7 @@ export const List = (props) => {
             prev.splice(index, 1);
             return [...prev];
         })
-         window.location.reload(false);
+        window.location.reload(false);
         navigate("/list");
     };
 
@@ -53,7 +55,7 @@ export const List = (props) => {
 
         // // delete the document
         // docRef.doc("lKjNIwEkjP537Ela6fhJ").delete();
-        
+
     }
 
 
@@ -61,15 +63,30 @@ export const List = (props) => {
     return (
         <div>
             <div id="ltr">
-                <div className="rectangle">
-                </div>
-                <div className="rectangle2">
-                    <img id="pic" src="https://serviced.co.il/wp-content/uploads/2022/01/%D7%A6%D7%95%D7%A8-%D7%A7%D7%A9%D7%A8-%D7%A9%D7%99%D7%A8%D7%95%D7%AA-%D7%9C%D7%A7%D7%95%D7%97%D7%95%D7%AA-%D7%99%D7%93-%D7%A9%D7%A8%D7%94.png" />
-                </div>
+                <img id="pic" src="https://serviced.co.il/wp-content/uploads/2022/01/%D7%A6%D7%95%D7%A8-%D7%A7%D7%A9%D7%A8-%D7%A9%D7%99%D7%A8%D7%95%D7%AA-%D7%9C%D7%A7%D7%95%D7%97%D7%95%D7%AA-%D7%99%D7%93-%D7%A9%D7%A8%D7%94.png" />
                 <div>
                     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-                    <Link to='/user_name'><button className="homeBtn"><i className="fa fa-home"></i> מסך הבית</button></Link>
                 </div>
+            </div>
+            <SideNav onSelect={(selected) => { navigate(selected); }} style={{ fontSize: '1.75em', height: '100%', position: "fixed" }}>
+                <SideNav.Toggle />
+                <SideNav.Nav defaultSelected="home">
+                    <NavItem eventKey="/list" >
+
+
+                        <NavIcon><i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' }} /></NavIcon>
+                        <NavText>רשימת מתנדבים</NavText>
+                    </NavItem>
+                    <NavItem eventKey="/filter">
+                        <NavIcon><i className="fa fa-search" aria-hidden="true" style={{ fontSize: '1.75em' }} /></NavIcon>
+                        <NavText>חיפוש</NavText>
+
+                    </NavItem>
+                </SideNav.Nav>
+            </SideNav>
+            <div id="ltr">
+            <Link to='/add-contact'><button id="btnOK" type="button">הוסף</button></Link>
+        
 
                 <table id="tb">
                     <thead>
@@ -101,18 +118,19 @@ export const List = (props) => {
                                 <td>{obj.po}</td>
                                 <td>{obj.notes}</td>
                                 <td><button id="btnDel" onClick={() => handleDelete(obj.id)} ><Icon icon="icomoon-free:bin" color="black" /></button>
-                                <button id="btnEdit" onClick={() => handleEdit(obj.id)} ><Icon icon="bxs:edit" color="black" /></button>
+                                    <button id="btnDel" onClick={() => handleDelete(obj.id)} ><Icon icon="bxs:edit" color="black" /></button>
 
-                                
+
                                 </td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
-                <Link to='/add-contact'><button id="btnOK" type="button">הוספת איש קשר</button></Link>
+                <br></br>
 
             </div>
         </div>
+
 
     )
 }
