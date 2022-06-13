@@ -10,26 +10,23 @@ import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/rea
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 
 
-
-
-
-
 export const List = (props) => {
 
     const contactRef = collection(firestore, "Contacts");
     const [contactArray, setContactArray] = useState([]);
     const [callData, setCallData] = useState("");
     const navigate = useNavigate();
+    
 
     const handleDelete = async (id) => {
         await deleteDoc(doc(firestore, "Contacts", id));
+        window.location.reload(false);
         setCallData(prev => {
             const index = prev.findIndex(item => item.id === id);
             prev.splice(index, 1);
             return [...prev];
         })
-        window.location.reload(false);
-        navigate("/list");
+        
     };
 
     const getData = async () => {
@@ -88,7 +85,7 @@ export const List = (props) => {
             <Link to='/add-contact'><button id="btnOK" type="button">הוסף</button></Link>
         
 
-                <table id="tb">
+                <table>
                     <thead>
                         <tr>
                             <th> שם עמותה</th>
@@ -101,7 +98,6 @@ export const List = (props) => {
                             <th> טלפון נייח</th>
                             <th>ת.ד.</th>
                             <th>הערות</th>
-                            <th>פעולות</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -119,7 +115,6 @@ export const List = (props) => {
                                 <td>{obj.notes}</td>
                                 <td><button id="btnDel" onClick={() => handleDelete(obj.id)} ><Icon icon="icomoon-free:bin" color="black" /></button>
                                     <button id="btnDel" onClick={() => handleDelete(obj.id)} ><Icon icon="bxs:edit" color="black" /></button>
-
 
                                 </td>
                             </tr>
