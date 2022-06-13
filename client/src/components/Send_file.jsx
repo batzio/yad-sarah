@@ -2,8 +2,6 @@
 import React, { useState } from 'react';
 import { Link, Navigate } from "react-router-dom"
 import { useNavigate } from "react-router-dom";
-
-
 import emailjs from '@emailjs/browser';
 
 export const Send_file = ({emailList}) => {
@@ -20,7 +18,7 @@ export const Send_file = ({emailList}) => {
 
 
     const sendEmail = (e) => {
-        e.preventDefault();
+       e.preventDefault();
 
         emailList.forEach(email => emailjs.send('service_lbg475p', 'template_wv4rpeu', {user_email: email, title: title,job_title:job_title,requiments:requiments,hour:hour }, '5LATqiCDbPCcir3ur')
             .then((result) => {

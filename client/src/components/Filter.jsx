@@ -18,31 +18,20 @@ export const Filter = ({ setEmailList }) => {
 
     async function getData() {
         const dataArray = await getDocs(query(contactRef));
-        dataArray.forEach(doc => {
-            setCallData(prev => [...prev, doc.data()])
-        })
+      
     }
 
     useEffect(() => {
         return () => getData();
     }, [])
 
-    const searchText = (event) => {
-        setFilter(event.target.value);
-    }
-
-    let dataSearch = callData.filter(item => {
-        return Object.keys(item).some(key =>
-            item[key].toString().toLowerCase().includes(filter.toString().toLowerCase())
-        )
-    })
-
+   
 
 
 
     const handleSearch = async() => {
         console.log(district)
-        var q = query(contactRef, where("district", "==", district),where("domain","==",domain),where("domain","==", domain));
+        var q = query(contactRef, where("district", "==", district),where("city","==",city),where("domain","==", domain));
 
         const snapshot = await getDocs(q);
         snapshot.forEach(item => setEmailList(prev => [...prev, item.data().emailOfCoordinator]));
@@ -81,7 +70,7 @@ export const Filter = ({ setEmailList }) => {
                         <option value="שרון">שרון</option>
                     </select>
                     <br />
-                    <select name="scity" id="scity">
+                    <select name="scity" id="scity" value={city} onChange={(e) => setCity(e.target.value)}>
                     <option value="" disabled selected>בחר עיר</option>
                     <option value="אום אל פחם">אום אל פחם</option>
                     <option value="אופקים">אופקים</option>

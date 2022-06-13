@@ -101,7 +101,7 @@ export const List = (props) => {
                                 <td>{obj.po}</td>
                                 <td>{obj.notes}</td>
                                 <td><button id="btnDel" onClick={() => handleDelete(obj.id)} ><Icon icon="icomoon-free:bin" color="black" /></button>
-                                <button id="btnEdit" onClick={() => handleDelete(obj.id)} ><Icon icon="bxs:edit" color="black" /></button>
+                                <button id="btnEdit" onClick={() => handleEdit(obj.id)} ><Icon icon="bxs:edit" color="black" /></button>
 
                                 
                                 </td>
