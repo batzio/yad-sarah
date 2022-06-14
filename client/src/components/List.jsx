@@ -1,4 +1,3 @@
-
 import { FirebaseError } from "firebase/app";
 import { collection, doc, getDoc, getDocs, query, setDoc, deleteDoc } from "firebase/firestore";
 import React, { useEffect, useState } from "react"
@@ -9,57 +8,48 @@ import { async } from "@firebase/util";
 import { Icon } from '@iconify/react';
 import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
-
-
-
-
-
+import { Add_contact } from "./Add_contact";
 
 export const List = (props) => {
-
     const contactRef = collection(firestore, "Contacts");
     const [contactArray, setContactArray] = useState([]);
-    const [callData, setCallData] = useState("");
     const navigate = useNavigate();
-    const [showBox, setShowBox] = useState(true);
-
 
     const handleDelete = async (id) => {
         
         if (!window.confirm('האם אתה בטוח שברצונך למחוק פריט זה?')) this.onCancel(id);
         await deleteDoc(doc(firestore, "Contacts", id));
-        setCallData(prev => {
-            window.location.reload(false);
+        setContactArray(prev => {
             const index = prev.findIndex(item => item.id === id);
             prev.splice(index, 1);
             return [...prev];
-
         })
-
     };
+    const handleEdit = async (id) => {
+        if (!window.confirm('האם אתה בטוח שברצונך לערוך פריט זה?')) this.onCancel(id);
+        e.preventDefault();
+        if (isEditing) {
+            await setDoc(doc(contactsRef, id), { name: nameValue, domain: domainValue, district: area, city: address, nameOfCoordinator: cnameValue, emailOfCoordinator: coEmail, cellPhone: cphoneValue, phone: phoneValue, po: POValue, notes: notes })
 
-    const handleEdit= async (id) => {
-        await setDoc(doc(firestore, "Contacts", id));
+        }
+        // send object to FirebaseError
+        navigate("/list");
+    }
 
-
-
-    };
+    
         
     const getData = async () => {
         var q = query(contactRef);
-        const callData = await getDocs(q)
-        callData.forEach(doc => {
+        const data = await getDocs(q)
+        data.forEach(doc => {
             console.log(doc.data());
             setContactArray(prev => [...prev, { ...doc.data(), id: doc.id }])
         })
     }
-
     useEffect(() => {
         getData();
     }, [])
     //delete
-
-
 
     const handleClick = async (e) => {
         e.preventDefault();
@@ -68,12 +58,8 @@ export const List = (props) => {
 
         // // delete the document
         // docRef.doc("lKjNIwEkjP537Ela6fhJ").delete();
-
     }
-    
-
     return (
-        
         <div>
             <div id="ltr">
                 <img id="pic" src="https://serviced.co.il/wp-content/uploads/2022/01/%D7%A6%D7%95%D7%A8-%D7%A7%D7%A9%D7%A8-%D7%A9%D7%99%D7%A8%D7%95%D7%AA-%D7%9C%D7%A7%D7%95%D7%97%D7%95%D7%AA-%D7%99%D7%93-%D7%A9%D7%A8%D7%94.png" />
@@ -85,15 +71,12 @@ export const List = (props) => {
                 <SideNav.Toggle />
                 <SideNav.Nav defaultSelected="home">
                     <NavItem eventKey="/list" >
-
-
                         <NavIcon><i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' }} /></NavIcon>
                         <NavText>רשימת מתנדבים</NavText>
                     </NavItem>
                     <NavItem eventKey="/filter">
                         <NavIcon><i className="fa fa-search" aria-hidden="true" style={{ fontSize: '1.75em' }} /></NavIcon>
                         <NavText>חיפוש</NavText>
-
                     </NavItem>
                 </SideNav.Nav>
             </SideNav>
@@ -141,10 +124,8 @@ export const List = (props) => {
                     </tbody>
                 </table>
                 <br></br>
-
             </div>
+            {isEditing ? <Add_contact nameValue={id.name} domainValue={id.domain} address={id.city} area={id.district} cnameValue={nameOfCoordinator} coEmail={emailOfCoordinator} cphoneValue={cellPhone} phoneValue={phone} POValue={po} notes={notes} /> : null}
         </div>
-
-
     )
 }

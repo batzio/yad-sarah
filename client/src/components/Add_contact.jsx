@@ -9,16 +9,16 @@ import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 
 export const Add_contact = (props) => {
 
-    const [nameValue, setNameValue] = useState("");
-    const [domainValue, setDomainValue] = useState("");
-    const [address, setAddress] = useState("");
-    const [area, setArea] = useState("");
-    const [cnameValue, setCnameValue] = useState("");
-    const [coEmail, setCoEmail] = useState("");
-    const [cphoneValue, setCphoneValue] = useState("");
-    const [phoneValue, setPhoneValue] = useState("");
-    const [POValue, setPOValue] = useState("");
-    const [notes, setNotes] = useState("");
+    const [nameValue, setNameValue] = useState(props.nameValue || "");
+    const [domainValue, setDomainValue] = useState(props.domainValue ||"");
+    const [address, setAddress] = useState(props.address ||"");
+    const [area, setArea] = useState(props.area ||"");
+    const [cnameValue, setCnameValue] = useState(props.cnameValue ||"");
+    const [coEmail, setCoEmail] = useState(props.coEmail ||"");
+    const [cphoneValue, setCphoneValue] = useState(props.cphoneValue ||"");
+    const [phoneValue, setPhoneValue] = useState(props.phoneValue ||"");
+    const [POValue, setPOValue] = useState(props.POValue ||"");
+    const [notes, setNotes] = useState(props.notes ||"");
     const navigate = useNavigate();
 
     const contactsRef = collection(firestore, 'Contacts');
@@ -35,26 +35,21 @@ export const Add_contact = (props) => {
                     <img id="pic" src="https://serviced.co.il/wp-content/uploads/2022/01/%D7%A6%D7%95%D7%A8-%D7%A7%D7%A9%D7%A8-%D7%A9%D7%99%D7%A8%D7%95%D7%AA-%D7%9C%D7%A7%D7%95%D7%97%D7%95%D7%AA-%D7%99%D7%93-%D7%A9%D7%A8%D7%94.png" />
                 <div>
                     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-
                 </div>
                 <SideNav onSelect={(selected) => {navigate(selected);}} style={{ fontSize: '1.75em',height:'100%',position:"fixed" }}>
                 <SideNav.Toggle />
                 <SideNav.Nav defaultSelected="home">
                     <NavItem eventKey="/list" >
-
-
                         <NavIcon><i className="fa fa-fw fa-home" style={{ fontSize: '1.75em'}} /></NavIcon>
                         <NavText>רשימת מתנדבים</NavText>
                     </NavItem>
                     <NavItem eventKey="/filter">
                         <NavIcon><i className="fa fa-search" aria-hidden="true"  style={{ fontSize: '1.75em' }} /></NavIcon>
                         <NavText>חיפוש</NavText>
-
                     </NavItem>
                 </SideNav.Nav>
             </SideNav>
                 <div className="container">
-
                     <form>
                         <label for="aname">שם העמותה:</label>
                         <input type="text1" id="aname" name="association_name" placeholder="הקלד כאן" value={nameValue} onChange={(e) => setNameValue(e.target.value)} />
@@ -153,7 +148,6 @@ export const Add_contact = (props) => {
                             <option value="מרכז">מרכז</option>
                             <option value="צפון">צפון</option>
                             <option value="שרון">שרון</option>
-
                         </select>
 
                         <label for="mbname">תא דואר:</label>

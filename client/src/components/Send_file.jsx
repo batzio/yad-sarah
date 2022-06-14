@@ -1,11 +1,9 @@
-
 import React, { useState } from 'react';
 import { Link, Navigate } from "react-router-dom"
 import { useNavigate } from "react-router-dom";
 import emailjs from '@emailjs/browser';
 import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
-
 
 export const Send_file = ({emailList}) => {
     console.log(emailList)

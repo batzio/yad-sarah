@@ -18,25 +18,14 @@ export const Filter = ({ setEmailList }) => {
 
     const navigate = useNavigate();
 
-    async function getData() {
-        const dataArray = await getDocs(query(contactRef));
-
-    }
-
-    useEffect(() => {
-        return () => getData();
-    }, [])
-
-
-
-
 
     const handleSearch = async () => {
         console.log(district)
-        var q = query(contactRef, where("district", "==", district), where("city", "==", city), where("domain", "==", domain));
+
+        const q = query(contactRef, where("district", "==", district), where("city", "==", city), where("domain", "==", domain));
 
         const snapshot = await getDocs(q);
-        snapshot.forEach(item => setEmailList(prev => [...prev, item.data().emailOfCoordinator]));
+        snapshot.forEach(item => {console.log(item.data()); setEmailList(prev => [...prev, item.data().emailOfCoordinator])});
         navigate('/send-file')
     }
 
