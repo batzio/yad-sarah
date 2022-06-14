@@ -1,3 +1,4 @@
+
 import { FirebaseError } from "firebase/app";
 import { collection, doc, getDoc, getDocs, query, setDoc, deleteDoc } from "firebase/firestore";
 import React, { useEffect, useState } from "react"
@@ -10,23 +11,28 @@ import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/rea
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 
 
+
+
+
+
 export const List = (props) => {
 
     const contactRef = collection(firestore, "Contacts");
     const [contactArray, setContactArray] = useState([]);
     const [callData, setCallData] = useState("");
     const navigate = useNavigate();
-    
 
     const handleDelete = async (id) => {
         await deleteDoc(doc(firestore, "Contacts", id));
-        window.location.reload(false);
         setCallData(prev => {
+            window.location.reload(false);
             const index = prev.findIndex(item => item.id === id);
             prev.splice(index, 1);
             return [...prev];
+
         })
-        
+        navigate("/list");
+
     };
 
     const getData = async () => {
@@ -85,7 +91,7 @@ export const List = (props) => {
             <Link to='/add-contact'><button id="btnOK" type="button">הוסף</button></Link>
         
 
-                <table>
+                <table id="tb">
                     <thead>
                         <tr>
                             <th> שם עמותה</th>
@@ -98,6 +104,7 @@ export const List = (props) => {
                             <th> טלפון נייח</th>
                             <th>ת.ד.</th>
                             <th>הערות</th>
+                            <th>פעולות</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -115,6 +122,7 @@ export const List = (props) => {
                                 <td>{obj.notes}</td>
                                 <td><button id="btnDel" onClick={() => handleDelete(obj.id)} ><Icon icon="icomoon-free:bin" color="black" /></button>
                                     <button id="btnDel" onClick={() => handleDelete(obj.id)} ><Icon icon="bxs:edit" color="black" /></button>
+
 
                                 </td>
                             </tr>

@@ -1,7 +1,8 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState,Image } from 'react'
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase/firebase";
+
 
 export const Login = (props) => {
     const [username, setUsername] = useState("");
@@ -22,7 +23,9 @@ export const Login = (props) => {
     }
 
     return (
+      <div className="img">
         <div dir="rtl">
+
             <div className="rectangle"></div>
             <div className="rectangle2">
                 <img id="pic1"
@@ -41,6 +44,7 @@ export const Login = (props) => {
                         </div>
                     </div>
                 </form>
+            </div>
             </div>
         </div>
     )
