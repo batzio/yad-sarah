@@ -128,7 +128,9 @@ textarea {
   margin-bottom: 1%;
 
 }
-
+/* #btn_add{
+  margin-left: 0%;
+} */
 #btnDel{
   border: none;
   cursor: pointer;
@@ -239,7 +241,7 @@ input[type=password] {
   margin: auto;
   width: 90%;
   text-align: center;
-  font-size: 200%;
+  font-size: 10px;
 
 }
 

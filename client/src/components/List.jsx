@@ -21,11 +21,12 @@ export const List = (props) => {
     const [contactArray, setContactArray] = useState([]);
     const [callData, setCallData] = useState("");
     const navigate = useNavigate();
-    
+    const [showBox, setShowBox] = useState(true);
+
 
     const handleDelete = async (id) => {
+        
         if (!window.confirm('האם אתה בטוח שברצונך למחוק פריט זה?')) this.onCancel(id);
-
         await deleteDoc(doc(firestore, "Contacts", id));
         setCallData(prev => {
             window.location.reload(false);
@@ -37,6 +38,13 @@ export const List = (props) => {
 
     };
 
+    const handleEdit= async (id) => {
+        await setDoc(doc(firestore, "Contacts", id));
+
+
+
+    };
+        
     const getData = async () => {
         var q = query(contactRef);
         const callData = await getDocs(q)
@@ -90,8 +98,9 @@ export const List = (props) => {
                 </SideNav.Nav>
             </SideNav>
             <div id="ltr">
-            <Link to='/add-contact'><button id="btnOK" type="button">הוסף</button></Link>
-        
+           {/* <div id="btn_add"> */}
+            <Link to='/add-contact'><button id="btnOK" type="button"> <i class="fa fa-plus" aria-hidden="true"></i></button></Link>
+        {/* </div> */}
 
                 <table id="tb">
                     <thead>
@@ -123,7 +132,7 @@ export const List = (props) => {
                                 <td>{obj.po}</td>
                                 <td>{obj.notes}</td>
                                 <td><button id="btnDel" onClick={() => handleDelete(obj.id)} ><Icon icon="icomoon-free:bin" color="black" /></button>
-                                    <button id="btnDel" onClick={() => handleDelete(obj.id)} ><Icon icon="bxs:edit" color="black" /></button>
+                                    <button id="btnDel" onClick={() => handleEdit(obj.id)} ><Icon icon="bxs:edit" color="black" /></button>
 
 
                                 </td>

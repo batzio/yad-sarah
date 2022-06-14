@@ -73,6 +73,8 @@ export const Filter = ({ setEmailList }) => {
                             <option value="לוגיסטיקה">לוגיסטיקה</option>
                             <option value="אינסטלציה">אינסטלציה</option>
                             <option value="חשמל">חשמל</option>
+                            {/* <option value="אחר">אחר</option> */}
+
 
 
                         </select>
@@ -84,6 +86,8 @@ export const Filter = ({ setEmailList }) => {
                             <option value="מרכז">מרכז</option>
                             <option value="צפון">צפון</option>
                             <option value="שרון">שרון</option>
+                            {/* <option value="אחר">אחר</option> */}
+
                         </select>
                         <br />
                         <select name="scity" id="scity" value={city} onChange={(e) => setCity(e.target.value)}>
@@ -160,6 +164,8 @@ export const Filter = ({ setEmailList }) => {
                             <option value="שדרות">שדרות</option>
                             <option value="שפרעם">שפרעם</option>
                             <option value="תל אביב">תל אביב</option>
+                            {/* <option value="אחר">אחר</option> */}
+
                         </select>
 
                         <br />
