@@ -24,6 +24,8 @@ export const List = (props) => {
     
 
     const handleDelete = async (id) => {
+        if (!window.confirm('האם אתה בטוח שברצונך למחוק פריט זה?')) this.onCancel(id);
+
         await deleteDoc(doc(firestore, "Contacts", id));
         setCallData(prev => {
             window.location.reload(false);
