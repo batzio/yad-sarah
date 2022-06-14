@@ -21,6 +21,7 @@ export const List = (props) => {
     const [contactArray, setContactArray] = useState([]);
     const [callData, setCallData] = useState("");
     const navigate = useNavigate();
+    
 
     const handleDelete = async (id) => {
         await deleteDoc(doc(firestore, "Contacts", id));
@@ -31,7 +32,6 @@ export const List = (props) => {
             return [...prev];
 
         })
-        navigate("/list");
 
     };
 
@@ -60,10 +60,10 @@ export const List = (props) => {
         // docRef.doc("lKjNIwEkjP537Ela6fhJ").delete();
 
     }
-
-
+    
 
     return (
+        
         <div>
             <div id="ltr">
                 <img id="pic" src="https://serviced.co.il/wp-content/uploads/2022/01/%D7%A6%D7%95%D7%A8-%D7%A7%D7%A9%D7%A8-%D7%A9%D7%99%D7%A8%D7%95%D7%AA-%D7%9C%D7%A7%D7%95%D7%97%D7%95%D7%AA-%D7%99%D7%93-%D7%A9%D7%A8%D7%94.png" />

@@ -61,6 +61,7 @@ table {
   font-size: 20px;
   margin-right: 2%;
   margin-top: 5%;
+  background-color: white;
 
 }
 
@@ -73,6 +74,7 @@ th {
 #tb thead tr{
   background:#c8c6c6;
 }
+
 #sidebar{
   background-color: #E5103A;
 
@@ -86,6 +88,11 @@ tr:nth-child(odd) {
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  background-image: url("https://img.freepik.com/free-vector/blank-light-grey-blurred-background-with-radial-gradient_53562-6788.jpg?size=626&ext=jpg&uid=R11351739&ga=GA1.2.1426679605.1652434703");
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  
 }
 
 * {
@@ -146,7 +153,7 @@ margin-right: 1px;
 
 .container {
   padding: 50px;
-  background-color: #fffefe;
+  /* background-color: #fffefe; */
   margin: auto;
   width: 50%;
   font-size: 25px;
@@ -349,5 +356,3 @@ font-size: 13px;
 .sidenav---_u0En{
   background: black
 }
-
-
