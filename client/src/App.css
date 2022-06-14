@@ -149,7 +149,10 @@ margin-right: 1px;
   
 }
 
-
+#textarea_s{
+  font-family:Arial;
+  font-size:17px ;
+}
 
 .container {
   padding: 50px;
@@ -158,6 +161,7 @@ margin-right: 1px;
   width: 50%;
   font-size: 25px;
   text-align: right;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 

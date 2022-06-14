@@ -166,7 +166,7 @@ export const Add_contact = (props) => {
                         <input type="text1" id="Landline" name="Landline" placeholder="הקלד כאן" value={phoneValue} onChange={(e) => setPhoneValue(e.target.value)} />
 
                         <label for="subject">הערות</label>
-                        <textarea id="subject" name="subject" placeholder="הקלד כאן" value={notes} onChange={(e) => setNotes(e.target.value)}></textarea>
+                        <textarea type="text1" id="textarea_s" name="Landline" placeholder="הקלד כאן"  value={notes} onChange={(e) => setNotes(e.target.value)}></textarea>
                         <button id="btnOK" type="button" onClick={handleClick}>אישור</button>
                     </form>
 
