@@ -12,7 +12,6 @@ export const Send_file = ({emailList}) => {
     const [job_title, setJobTitle] = useState('');
     const [requiments, setRequiments] = useState('');
     const [hour, setHour] = useState('');
-    //const [user_email, setUserEmail] = useState('');
 
 
     const navigate = useNavigate();
@@ -21,17 +20,20 @@ export const Send_file = ({emailList}) => {
     const sendEmail = (e) => {
        e.preventDefault();
 
-        emailList.forEach(email => emailjs.send('service_lbg475p', 'template_wv4rpeu', {user_email: email, title: title,job_title:job_title,requiments:requiments,hour:hour }, '5LATqiCDbPCcir3ur')
-            .then((result) => {
-                console.log(result.text);
-                alert("ההודעה נשלחה בהצלחה", result.text);
-                navigate("/list");
-            }, (error) => {
-                console.log(error.text);
-                alert("ארעה שגיאה נסה שנית", error.text);
+        emailList.forEach(email => emailjs.send('service_oakhkpq', 'template_3bex2m5', {user_email: email, title: title,job_title:job_title,requiments:requiments,hour:hour }, 'Rb2DWcm67GEe5DHn-')
+        .then((result) => {
+        console.log(result.text);
+        alert("ההודעה נשלחה בהצלחה", result.text);
+        navigate("/list");
+    }, (error) => {
+        console.log(error.text);
+        alert("ארעה שגיאה נסה שנית", error.text);
 
-            }))
+    }))
+    alert("ההודעה נשלחה בהצלחה")
     };
+       
+   
 
     return (
         <div>
@@ -58,16 +60,16 @@ export const Send_file = ({emailList}) => {
                 </SideNav.Nav>
             </SideNav>
             <div className='container'>
-                <form onSubmit={sendEmail}>
-                    <label>תפקיד:</label>
+                <form onSubmit={sendEmail} >
+                    <label>תפקיד</label>
                     <textarea id="ltr" name="title" value={title} onChange={(e) => setTitle(e.target.value)} />
-                    <label>תאור התפקיד:</label>
+                    <label>תאור התפקיד</label>
                     <textarea id="ltr" name="job_title" value={job_title} onChange={(e) => setJobTitle(e.target.value)}/>
-                    <label>דרישות התפקיד:</label>
+                    <label>דרישות התפקיד</label>
                     <textarea id="ltr" name="requiments" value={requiments} onChange={(e) => setRequiments(e.target.value)}/>
                     <label>ימים ושעות התנדבות</label>
                     <textarea id="ltr" name="hour" value={hour} onChange={(e) => setHour(e.target.value)}/>
-                    <input type="submit" value="שלח" id="btn_send" />
+                    <input  type="submit" value="שלח" id="btn_send"  />
 
                 </form>
 

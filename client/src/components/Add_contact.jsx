@@ -19,7 +19,18 @@ export const Add_contact = (props) => {
     const [phoneValue, setPhoneValue] = useState(props.phoneValue ||"");
     const [POValue, setPOValue] = useState(props.POValue ||"");
     const [notes, setNotes] = useState(props.notes ||"");
-    const navigate = useNavigate();
+    
+    // const [nameValue, setNameValue] = useState("");
+    // const [domainValue, setDomainValue] = useState("");
+    // const [address, setAddress] = useState("");
+    // const [area, setArea] = useState("");
+    // const [cnameValue, setCnameValue] = useState("");
+    // const [coEmail, setCoEmail] = useState("");
+    // const [cphoneValue, setCphoneValue] = useState("");
+    // const [phoneValue, setPhoneValue] = useState("");
+    // const [POValue, setPOValue] = useState("");
+    // const [notes, setNotes] = useState("");
+ const navigate = useNavigate();
 
     const contactsRef = collection(firestore, 'Contacts');
     const handleClick = async (e) => {
@@ -31,7 +42,7 @@ export const Add_contact = (props) => {
 
     return (
         <div>
-            <div id="ltr">
+            <div>
                     <img id="pic" src="https://serviced.co.il/wp-content/uploads/2022/01/%D7%A6%D7%95%D7%A8-%D7%A7%D7%A9%D7%A8-%D7%A9%D7%99%D7%A8%D7%95%D7%AA-%D7%9C%D7%A7%D7%95%D7%97%D7%95%D7%AA-%D7%99%D7%93-%D7%A9%D7%A8%D7%94.png" />
                 <div>
                     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -49,21 +60,21 @@ export const Add_contact = (props) => {
                     </NavItem>
                 </SideNav.Nav>
             </SideNav>
-                <div className="container">
+                <div className="container" id="ltr">
                     <form>
-                        <label for="aname">שם העמותה:</label>
+                        <label for="aname">שם העמותה</label>
                         <input type="text1" id="aname" name="association_name" placeholder="הקלד כאן" value={nameValue} onChange={(e) => setNameValue(e.target.value)} />
 
-                        <label for="dname">תחום העמותה:</label>
+                        <label for="dname">תחום העמותה</label>
                         <input type="text1" id="dname" name="domain_association" placeholder="הקלד כאן" value={domainValue} onChange={(e) => setDomainValue(e.target.value)} />
 
-                        <label for="cname">שם רכז העמותה:</label>
+                        <label for="cname">שם רכז העמותה</label>
                         <input type="text1" id="cname" name="association_coordinator" placeholder="הקלד כאן" value={cnameValue} onChange={(e) => setCnameValue(e.target.value)} />
 
-                        <label for="mname">מייל רכז:</label>
+                        <label for="mname">מייל רכז</label>
                         <input type="text1" id="mname" name="mail" placeholder="הקלד כאן" value={coEmail} onChange={(e) => setCoEmail(e.target.value)} />
 
-                        <label for="address">כתובת העמותה:</label>
+                        <label for="address">כתובת העמותה</label>
                         <select id="address" name="address" value={address} onChange={(e) => setAddress(e.target.value)}>
                             <option value="" disabled selected>בחר כתובת</option>
                             <option value="אום אל פחם">אום אל פחם</option>
@@ -140,7 +151,7 @@ export const Add_contact = (props) => {
                             <option value="תל אביב">תל אביב</option>
                         </select>
 
-                        <label for="address">מחוז:</label>
+                        <label for="address">מחוז</label>
                         <select id="address" name="address" value={area} onChange={(e) => setArea(e.target.value)}>
                             <option value="" disabled selected>בחר מחוז</option>
                             <option value="דרום">דרום</option>
@@ -150,13 +161,13 @@ export const Add_contact = (props) => {
                             <option value="שרון">שרון</option>
                         </select>
 
-                        <label for="mbname">תא דואר:</label>
+                        <label for="mbname">תא דואר</label>
                         <input type="text1" id="mbname" name="mailbox" placeholder="הקלד כאן" value={POValue} onChange={(e) => setPOValue(e.target.value)} />
 
-                        <label for="cellphone">טלפון נייד:</label>
+                        <label for="cellphone">טלפון נייד</label>
                         <input type="text1" id="cellphone" name="cellphone" placeholder="הקלד כאן" value={cphoneValue} onChange={(e) => setCphoneValue(e.target.value)} />
 
-                        <label for="Landline">טלפון נייח:</label>
+                        <label for="Landline">טלפון נייח</label>
                         <input type="text1" id="Landline" name="Landline" placeholder="הקלד כאן" value={phoneValue} onChange={(e) => setPhoneValue(e.target.value)} />
 
                         <label for="subject">הערות</label>

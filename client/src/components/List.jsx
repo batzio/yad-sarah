@@ -14,6 +14,8 @@ export const List = (props) => {
     const contactRef = collection(firestore, "Contacts");
     const [contactArray, setContactArray] = useState([]);
     const navigate = useNavigate();
+    const [isEditing, setisEditing] = useState(false);
+
 
     const handleDelete = async (id) => {
         
@@ -26,16 +28,15 @@ export const List = (props) => {
         })
     };
     const handleEdit = async (id) => {
-        if (!window.confirm('האם אתה בטוח שברצונך לערוך פריט זה?')) this.onCancel(id);
-        e.preventDefault();
-        if (isEditing) {
-            await setDoc(doc(contactsRef, id), { name: nameValue, domain: domainValue, district: area, city: address, nameOfCoordinator: cnameValue, emailOfCoordinator: coEmail, cellPhone: cphoneValue, phone: phoneValue, po: POValue, notes: notes })
+        // if (!window.confirm('האם אתה בטוח שברצונך לערוך פריט זה?')) this.onCancel(id);
+        id.preventDefault();
+        setisEditing(true)
+        // await setDoc(doc(contactsRef, id), { name: nameValue, domain: domainValue, district: area, city: address, nameOfCoordinator: cnameValue, emailOfCoordinator: coEmail, cellPhone: cphoneValue, phone: phoneValue, po: POValue, notes: notes })
 
-        }
-        // send object to FirebaseError
-        navigate("/list");
+          navigate("/list");
     }
 
+    
     
         
     const getData = async () => {
@@ -81,11 +82,9 @@ export const List = (props) => {
                 </SideNav.Nav>
             </SideNav>
             <div id="ltr">
-           {/* <div id="btn_add"> */}
             <Link to='/add-contact'><button id="btnOK" type="button"> <i class="fa fa-plus" aria-hidden="true"></i></button></Link>
-        {/* </div> */}
 
-                <table id="tb">
+               {!isEditing ? <table id="tb">
                     <thead>
                         <tr>
                             <th> שם עמותה</th>
@@ -122,10 +121,12 @@ export const List = (props) => {
                             </tr>
                         ))}
                     </tbody>
-                </table>
+                </table> : null}
                 <br></br>
             </div>
-            {isEditing ? <Add_contact nameValue={id.name} domainValue={id.domain} address={id.city} area={id.district} cnameValue={nameOfCoordinator} coEmail={emailOfCoordinator} cphoneValue={cellPhone} phoneValue={phone} POValue={po} notes={notes} /> : null}
+            {isEditing ? <Add_contact/> : null}
         </div>
     )
 }
+
+// nameValue={id.name} domainValue={id.domain} address={id.city} area={id.district} cnameValue={id.nameOfCoordinator} coEmail={id.emailOfCoordinator} cphoneValue={id.cellPhone} phoneValue={id.phone} POValue={id.po} notes={id.notes} 

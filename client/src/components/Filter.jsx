@@ -4,6 +4,7 @@ import { firestore } from "../firebase/firebase";
 import { useEffect, useState } from "react";
 import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
+// import { useForm } from "form-control-react";
 
 
 export const Filter = ({ setEmailList }) => {
@@ -25,6 +26,7 @@ export const Filter = ({ setEmailList }) => {
         const q = query(contactRef, where("district", "==", district), where("city", "==", city), where("domain", "==", domain));
 
         const snapshot = await getDocs(q);
+        setEmailList([])
         snapshot.forEach(item => {console.log(item.data()); setEmailList(prev => [...prev, item.data().emailOfCoordinator])});
         navigate('/send-file')
     }
@@ -57,19 +59,15 @@ export const Filter = ({ setEmailList }) => {
                 <div className="container">
                     <form id="filter1">
                         <br />
-                        <select name="sdomain" id="sdomain" placeholder=",juo" value={domain} onChange={(e) => setDomain(e.target.value)}>
-                            <option value="" disabled selected>בחר תחום</option>
-                            <option value="לוגיסטיקה">לוגיסטיקה</option>
-                            <option value="אינסטלציה">אינסטלציה</option>
-                            <option value="חשמל">חשמל</option>
-                            {/* <option value="אחר">אחר</option> */}
-
-
-
-                        </select>
+                        {/* <div id=do"> */}
+                        <label for="dname"></label>
+                        <input id="sdomain" name="sdomain" placeholder="בחר תחום" value={domain} onChange={(e) => setDomain(e.target.value)} required />
+                    {/* </div> */}
                         <br />
+                        <br />
+                                            
                         <select name="sarea" id="sarea" value={district} onChange={(e) => setDistrict(e.target.value)}>
-                            <option value="" disabled selected>בחר מחוז</option>
+                            <option value="" disabled selected >בחר מחוז</option>
                             <option value="דרום">דרום</option>
                             <option value="ירושלים">ירושלים</option>
                             <option value="מרכז">מרכז</option>
