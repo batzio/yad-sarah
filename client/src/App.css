@@ -130,10 +130,13 @@ textarea {
 #btnDel{
   border: none;
   cursor: pointer;
-  background-color: #c8c6c6;
-  font-size: 15px;
+  background-color: #ffffff;
+  font-size: 28px;
   border-radius: 4px;
-margin-right: 1px;
+  /* margin-right: 1px; */
+  margin: auto;
+  text-align: center;
+  display: flex;
   
 }
 
