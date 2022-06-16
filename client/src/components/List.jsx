@@ -8,7 +8,7 @@ import { async } from "@firebase/util";
 import { Icon } from '@iconify/react';
 import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
-import { Add_contact } from "./Add_contact";
+// import { Add_contact } from "./Add_contact";
 
 
 export const List = () => {
@@ -82,7 +82,7 @@ export const List = () => {
                             <th> טלפון נייח</th>
                             <th>ת.ד.</th>
                             <th>הערות</th>
-                            <th>פעולות</th>
+                            <th>מחיקה</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -109,4 +109,5 @@ export const List = () => {
         </div>
     )
 }
+
 

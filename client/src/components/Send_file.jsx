@@ -20,10 +20,10 @@ export const Send_file = ({ emailList }) => {
 
     const sendEmail = (e) => {
         e.preventDefault();
-
         emailList.forEach(email => emailjs.send('service_oakhkpq', 'template_3bex2m5', { user_email: email, title: title, job_title: job_title, requiments: requiments, hour: hour }, 'Rb2DWcm67GEe5DHn-')
             .then((result) => {
                 console.log(result.text);
+                alert("ההודעה נשלחה בהצלחה", result.text)
                 navigate("/list");
             }, (error) => {
                 console.log(error.text);

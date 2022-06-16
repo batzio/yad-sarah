@@ -50,22 +50,22 @@ export const Add_contact = () => {
                     </SideNav.Nav>
                 </SideNav>
                 <div className="container" id="ltr">
-                    <form>
+                    <form required>
                         <label for="aname">שם העמותה</label>
-                        <input type="text1" id="aname" name="association_name" placeholder="הקלד כאן" value={nameValue} onChange={(e) => setNameValue(e.target.value)} />
+                        <input type="text1" id="aname" name="association_name" placeholder="הקלד כאן" value={nameValue} onChange={(e) => setNameValue(e.target.value)} required/>
 
                         <label for="dname">תחום העמותה</label>
-                        <input type="text1" id="dname" name="domain_association" placeholder="הקלד כאן" value={domainValue} onChange={(e) => setDomainValue(e.target.value)} />
+                        <input type="text1" id="dname" name="domain_association" placeholder="הקלד כאן" value={domainValue} onChange={(e) => setDomainValue(e.target.value)} required/>
 
                         <label for="cname">שם רכז העמותה</label>
-                        <input type="text1" id="cname" name="association_coordinator" placeholder="הקלד כאן" value={cnameValue} onChange={(e) => setCnameValue(e.target.value)} />
+                        <input type="text1" id="cname" name="association_coordinator" placeholder="הקלד כאן" value={cnameValue} onChange={(e) => setCnameValue(e.target.value)}required />
 
                         <label for="mname">מייל רכז</label>
-                        <input type="email" id="mname" name="mail" placeholder="הקלד כאן" value={coEmail} onChange={(e) => setCoEmail(e.target.value)} />
+                        <input type="email" id="mname" name="mail" placeholder="הקלד כאן" value={coEmail} onChange={(e) => setCoEmail(e.target.value)}required />
 
                         <label for="address">כתובת העמותה:</label>
 
-                        <select id="address" name="address" value={address} onChange={(e) => setAddress(e.target.value)}>
+                        <select id="address" name="address" value={address} onChange={(e) => setAddress(e.target.value)}required>
                             <option value="" disabled selected>בחר כתובת</option>
                             <option value="אום אל פחם">אום אל פחם</option>
                             <option value="אופקים">אופקים</option>
@@ -142,7 +142,7 @@ export const Add_contact = () => {
                         </select>
 
                         <label for="address">מחוז</label>
-                        <select id="address" name="address" value={area} onChange={(e) => setArea(e.target.value)}>
+                        <select id="address" name="address" value={area} onChange={(e) => setArea(e.target.value)} required>
                             <option value="" disabled selected>בחר מחוז</option>
                             <option value="דרום">דרום</option>
                             <option value="ירושלים">ירושלים</option>
@@ -152,16 +152,16 @@ export const Add_contact = () => {
                         </select>
 
                         <label for="mbname">תא דואר</label>
-                        <input type="text1" id="mbname" name="mailbox" placeholder="הקלד כאן" value={POValue} onChange={(e) => setPOValue(e.target.value)} />
+                        <input type="text1" id="mbname" name="mailbox" placeholder="הקלד כאן" value={POValue} onChange={(e) => setPOValue(e.target.value)}required/>
 
                         <label for="cellphone">טלפון נייד</label>
-                        <input type="text1" id="cellphone" name="cellphone" placeholder="הקלד כאן" value={cphoneValue} onChange={(e) => setCphoneValue(e.target.value)} />
+                        <input type="text1" id="cellphone" name="cellphone" placeholder="הקלד כאן" value={cphoneValue} onChange={(e) => setCphoneValue(e.target.value)} required/>
 
                         <label for="Landline">טלפון נייח</label>
-                        <input type="text1" id="Landline" name="Landline" placeholder="הקלד כאן" value={phoneValue} onChange={(e) => setPhoneValue(e.target.value)} />
+                        <input type="text1" id="Landline" name="Landline" placeholder="הקלד כאן" value={phoneValue} onChange={(e) => setPhoneValue(e.target.value)} required/>
 
                         <label for="subject">הערות</label>
-                        <textarea type="text1" id="textarea_s" name="Landline" placeholder="הקלד כאן" value={notes} onChange={(e) => setNotes(e.target.value)}></textarea>
+                        <textarea type="text1" id="textarea_s" name="Landline" placeholder="הקלד כאן" value={notes} onChange={(e) => setNotes(e.target.value)}required></textarea>
                         <button id="btnOK" type="button" onClick={handleClick}>אישור</button>
                     </form>
 

@@ -1,3 +1,4 @@
+
 .img{
   max-width: "100%";
   max-height: 100%;
@@ -133,7 +134,6 @@ textarea {
   background-color: #ffffff;
   font-size: 28px;
   border-radius: 4px;
-  /* margin-right: 1px; */
   margin: auto;
   text-align: center;
   display: flex;
@@ -343,3 +343,4 @@ select {
   font-size: x-large;
   text-align: right;
 }
+
