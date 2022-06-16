@@ -81,12 +81,7 @@ th {
   background-color: #E5103A;
 
 }
-/* tr:nth-child(even) {
-  background-color: #dddddd;
-}
-tr:nth-child(odd) {
-  background-color: #dddddd;
-} */
+
 
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -130,9 +125,7 @@ textarea {
   margin-bottom: 1%;
 
 }
-/* #btn_add{
-  margin-left: 0%;
-} */
+
 #btnDel{
   border: none;
   cursor: pointer;
@@ -307,15 +300,11 @@ select {
   background-color: #1f6acc;
   border: 1px solid rgb(239, 240, 239);
   color: white;
-  /* White text */
   width: 20%;
-  /* Set a width if needed */
-  /* display: block; Make the buttons appear below each other */
   margin-left: 50px;
   margin-right: 50px;
   text-align: center;
   margin: auto;
-  /* text-decoration-line:none; */
   padding: 12px 20px;
   border: block;
   border-radius: 4px;
@@ -335,28 +324,9 @@ select {
 
 .error {
 
-  /* border-radius: 25px;
-  width: 500px;
-  height: 45px;
-  text-align: center;
-  margin-right: 30px; */
-font-size: 13px;
-
-  /* border: 1px solid;
-  margin: 10px 0px;
-  width: 10%;
-  height: 12%;
-  padding: 15px 10px 15px 50px;
-  background-repeat: no-repeat;
-  background-position: 10px center;
-  color: #D8000C;
-  background-color: #FFBABA;
-  background-image: url('https://i.imgur.com/GnyDvKN.png');
-  font-family: Arial, Helvetica, sans-serif;*/
-  
+  font-size: 13px;
   text-align: center; 
   color: red;
-  /* font-style: italic; */
   font-weight: bold;
 }
 
@@ -365,10 +335,6 @@ font-size: 13px;
 }
 
 #sdomain{
-  /* margin-bottom: 10px; */
-  /* margin-top: 10px; */
-  /* display: block; */
-  /* color: black; */
   margin: 0 auto;
   font-size: x-large;
   text-align: right;

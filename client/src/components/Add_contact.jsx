@@ -7,35 +7,24 @@ import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/rea
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 
 
-export const Add_contact = (props) => {
+export const Add_contact = () => {
 
-    const [nameValue, setNameValue] = useState(props.nameValue || "");
-    const [domainValue, setDomainValue] = useState(props.domainValue ||"");
-    const [address, setAddress] = useState(props.address ||"");
-    const [area, setArea] = useState(props.area ||"");
-    const [cnameValue, setCnameValue] = useState(props.cnameValue ||"");
-    const [coEmail, setCoEmail] = useState(props.coEmail ||"");
-    const [cphoneValue, setCphoneValue] = useState(props.cphoneValue ||"");
-    const [phoneValue, setPhoneValue] = useState(props.phoneValue ||"");
-    const [POValue, setPOValue] = useState(props.POValue ||"");
-    const [notes, setNotes] = useState(props.notes ||"");
-    
-    // const [nameValue, setNameValue] = useState("");
-    // const [domainValue, setDomainValue] = useState("");
-    // const [address, setAddress] = useState("");
-    // const [area, setArea] = useState("");
-    // const [cnameValue, setCnameValue] = useState("");
-    // const [coEmail, setCoEmail] = useState("");
-    // const [cphoneValue, setCphoneValue] = useState("");
-    // const [phoneValue, setPhoneValue] = useState("");
-    // const [POValue, setPOValue] = useState("");
-    // const [notes, setNotes] = useState("");
- const navigate = useNavigate();
+    const [nameValue, setNameValue] = useState("");
+    const [domainValue, setDomainValue] = useState("");
+    const [address, setAddress] = useState("");
+    const [area, setArea] = useState("");
+    const [cnameValue, setCnameValue] = useState("");
+    const [coEmail, setCoEmail] = useState("");
+    const [cphoneValue, setCphoneValue] = useState("");
+    const [phoneValue, setPhoneValue] = useState("");
+    const [POValue, setPOValue] = useState("");
+    const [notes, setNotes] = useState("");
+
+    const navigate = useNavigate();
 
     const contactsRef = collection(firestore, 'Contacts');
     const handleClick = async (e) => {
         e.preventDefault();
-        // send object to FirebaseError
         await setDoc(doc(contactsRef), { name: nameValue, domain: domainValue, district: area, city: address, nameOfCoordinator: cnameValue, emailOfCoordinator: coEmail, cellPhone: cphoneValue, phone: phoneValue, po: POValue, notes: notes })
         navigate("/list");
     }
@@ -43,23 +32,23 @@ export const Add_contact = (props) => {
     return (
         <div>
             <div>
-                    <img id="pic" src="https://serviced.co.il/wp-content/uploads/2022/01/%D7%A6%D7%95%D7%A8-%D7%A7%D7%A9%D7%A8-%D7%A9%D7%99%D7%A8%D7%95%D7%AA-%D7%9C%D7%A7%D7%95%D7%97%D7%95%D7%AA-%D7%99%D7%93-%D7%A9%D7%A8%D7%94.png" />
+                <img id="pic" src="https://serviced.co.il/wp-content/uploads/2022/01/%D7%A6%D7%95%D7%A8-%D7%A7%D7%A9%D7%A8-%D7%A9%D7%99%D7%A8%D7%95%D7%AA-%D7%9C%D7%A7%D7%95%D7%97%D7%95%D7%AA-%D7%99%D7%93-%D7%A9%D7%A8%D7%94.png" />
                 <div>
                     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
                 </div>
-                <SideNav onSelect={(selected) => {navigate(selected);}} style={{ fontSize: '1.75em',height:'100%',position:"fixed" }}>
-                <SideNav.Toggle />
-                <SideNav.Nav defaultSelected="home">
-                    <NavItem eventKey="/list" >
-                        <NavIcon><i className="fa fa-fw fa-home" style={{ fontSize: '1.75em'}} /></NavIcon>
-                        <NavText>רשימת מתנדבים</NavText>
-                    </NavItem>
-                    <NavItem eventKey="/filter">
-                        <NavIcon><i className="fa fa-search" aria-hidden="true"  style={{ fontSize: '1.75em' }} /></NavIcon>
-                        <NavText>חיפוש</NavText>
-                    </NavItem>
-                </SideNav.Nav>
-            </SideNav>
+                <SideNav onSelect={(selected) => { navigate(selected); }} style={{ fontSize: '1.75em', height: '100%', position: "fixed" }}>
+                    <SideNav.Toggle />
+                    <SideNav.Nav defaultSelected="home">
+                        <NavItem eventKey="/list" >
+                            <NavIcon><i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' }} /></NavIcon>
+                            <NavText>רשימת מתנדבים</NavText>
+                        </NavItem>
+                        <NavItem eventKey="/filter">
+                            <NavIcon><i className="fa fa-search" aria-hidden="true" style={{ fontSize: '1.75em' }} /></NavIcon>
+                            <NavText>חיפוש</NavText>
+                        </NavItem>
+                    </SideNav.Nav>
+                </SideNav>
                 <div className="container" id="ltr">
                     <form>
                         <label for="aname">שם העמותה</label>
@@ -72,9 +61,10 @@ export const Add_contact = (props) => {
                         <input type="text1" id="cname" name="association_coordinator" placeholder="הקלד כאן" value={cnameValue} onChange={(e) => setCnameValue(e.target.value)} />
 
                         <label for="mname">מייל רכז</label>
-                        <input type="text1" id="mname" name="mail" placeholder="הקלד כאן" value={coEmail} onChange={(e) => setCoEmail(e.target.value)} />
+                        <input type="email" id="mname" name="mail" placeholder="הקלד כאן" value={coEmail} onChange={(e) => setCoEmail(e.target.value)} />
 
-                        <label for="address">כתובת העמותה</label>
+                        <label for="address">כתובת העמותה:</label>
+
                         <select id="address" name="address" value={address} onChange={(e) => setAddress(e.target.value)}>
                             <option value="" disabled selected>בחר כתובת</option>
                             <option value="אום אל פחם">אום אל פחם</option>
@@ -171,7 +161,7 @@ export const Add_contact = (props) => {
                         <input type="text1" id="Landline" name="Landline" placeholder="הקלד כאן" value={phoneValue} onChange={(e) => setPhoneValue(e.target.value)} />
 
                         <label for="subject">הערות</label>
-                        <textarea type="text1" id="textarea_s" name="Landline" placeholder="הקלד כאן"  value={notes} onChange={(e) => setNotes(e.target.value)}></textarea>
+                        <textarea type="text1" id="textarea_s" name="Landline" placeholder="הקלד כאן" value={notes} onChange={(e) => setNotes(e.target.value)}></textarea>
                         <button id="btnOK" type="button" onClick={handleClick}>אישור</button>
                     </form>
 

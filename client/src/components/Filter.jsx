@@ -15,13 +15,27 @@ export const Filter = ({ setEmailList }) => {
     const [district, setDistrict] = useState('');
     const [city, setCity] = useState('');
     const [domain, setDomain] = useState('');
-
+    const [inputError, setInputError]=useState({
+        // name: false,
+        domain: false,
+        city: false,
+        district: false,
+        // nameOfCoordinator: false,
+        // emailOfCoordinator: false,
+        // notes: false,
+        // cellPhone: false,
+        // phone: false,
+        // po: false,
+    });
 
     const navigate = useNavigate();
 
-
-    const handleSearch = async () => {
+    const handleSearch = async (flag) => {
         console.log(district)
+        // if(flag==false)
+        // {
+        //     useEffect();
+        // }
 
         const q = query(contactRef, where("district", "==", district), where("city", "==", city), where("domain", "==", domain));
 
@@ -30,6 +44,18 @@ export const Filter = ({ setEmailList }) => {
         snapshot.forEach(item => {console.log(item.data()); setEmailList(prev => [...prev, item.data().emailOfCoordinator])});
         navigate('/send-file')
     }
+    useEffect(()=>{
+        let showAlert;
+        Object.keys(inputError).forEach(key =>{
+            if(inputError[key] == ""){
+                showAlert=true;
+            }
+        })
+        if(showAlert){
+            alert('יש למלא את השדות הנדרשים')
+        }
+
+    },[inputError]);
 
     return (
         
@@ -158,18 +184,9 @@ export const Filter = ({ setEmailList }) => {
                         <br />
                         <br />
                         <br />
-                        <button id="btnOK" type="button" onClick={handleSearch}>חפש</button>
+                    // <button id="btnOK" type="button" onClick={handleSearch(true)}>חפש</button>
 
                     </form>
-
-                    {/* {dataSearch.map((object, index) => (
-                <div className="req" key={index}>
-                    <div>
-                        {object.source + " " + object.destination + " " + object.city + " " + object.date + " " + object.gender + " " + object.number_of_passengers + " " + object.car_type}
-                    </div> */}
-                    {/* <div>{object.source}</div> */}
-                    {/* </div>
-            ))} */}
 
                 </div>
             

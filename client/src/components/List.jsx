@@ -10,35 +10,13 @@ import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/rea
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import { Add_contact } from "./Add_contact";
 
-export const List = (props) => {
+
+export const List = () => {
     const contactRef = collection(firestore, "Contacts");
     const [contactArray, setContactArray] = useState([]);
     const navigate = useNavigate();
-    const [isEditing, setisEditing] = useState(false);
 
 
-    const handleDelete = async (id) => {
-        
-        if (!window.confirm('האם אתה בטוח שברצונך למחוק פריט זה?')) this.onCancel(id);
-        await deleteDoc(doc(firestore, "Contacts", id));
-        setContactArray(prev => {
-            const index = prev.findIndex(item => item.id === id);
-            prev.splice(index, 1);
-            return [...prev];
-        })
-    };
-    const handleEdit = async (id) => {
-        // if (!window.confirm('האם אתה בטוח שברצונך לערוך פריט זה?')) this.onCancel(id);
-        id.preventDefault();
-        setisEditing(true)
-        // await setDoc(doc(contactsRef, id), { name: nameValue, domain: domainValue, district: area, city: address, nameOfCoordinator: cnameValue, emailOfCoordinator: coEmail, cellPhone: cphoneValue, phone: phoneValue, po: POValue, notes: notes })
-
-          navigate("/list");
-    }
-
-    
-    
-        
     const getData = async () => {
         var q = query(contactRef);
         const data = await getDocs(q)
@@ -47,19 +25,26 @@ export const List = (props) => {
             setContactArray(prev => [...prev, { ...doc.data(), id: doc.id }])
         })
     }
+
     useEffect(() => {
         getData();
     }, [])
-    //delete
 
-    const handleClick = async (e) => {
-        e.preventDefault();
-        // const res = await db.collection('Contacts').doc('DC').delete();
-        // var docRef = Firebase.firestore().collection("Rooms").doc("bsYNIwEkjP237Ela6fUp").collection("Messages");
 
-        // // delete the document
-        // docRef.doc("lKjNIwEkjP537Ela6fhJ").delete();
-    }
+    const handleDelete = async (id) => {
+
+        if (!window.confirm('האם אתה בטוח שברצונך למחוק פריט זה?')) this.onCancel(id);
+        await deleteDoc(doc(firestore, "Contacts", id));
+        setContactArray(prev => {
+            const index = prev.findIndex(item => item.id === id);
+            prev.splice(index, 1);
+            return [...prev];
+        })
+    };
+
+
+
+
     return (
         <div>
             <div id="ltr">
@@ -82,9 +67,9 @@ export const List = (props) => {
                 </SideNav.Nav>
             </SideNav>
             <div id="ltr">
-            <Link to='/add-contact'><button id="btnOK" type="button"> <i class="fa fa-plus" aria-hidden="true"></i></button></Link>
+                <Link to='/add-contact'><button id="btnOK" type="button"> <i className="fa fa-plus" aria-hidden="true"></i></button></Link>
 
-               {!isEditing ? <table id="tb">
+                <table id="tb">
                     <thead>
                         <tr>
                             <th> שם עמותה</th>
@@ -114,19 +99,14 @@ export const List = (props) => {
                                 <td>{obj.po}</td>
                                 <td>{obj.notes}</td>
                                 <td><button id="btnDel" onClick={() => handleDelete(obj.id)} ><Icon icon="icomoon-free:bin" color="black" /></button>
-                                    <button id="btnDel" onClick={() => handleEdit(obj.id)} ><Icon icon="bxs:edit" color="black" /></button>
-
-
                                 </td>
                             </tr>
                         ))}
                     </tbody>
-                </table> : null}
+                </table>
                 <br></br>
             </div>
-            {isEditing ? <Add_contact/> : null}
         </div>
     )
 }
 
-// nameValue={id.name} domainValue={id.domain} address={id.city} area={id.district} cnameValue={id.nameOfCoordinator} coEmail={id.emailOfCoordinator} cphoneValue={id.cellPhone} phoneValue={id.phone} POValue={id.po} notes={id.notes} 
