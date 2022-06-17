@@ -24,14 +24,14 @@ export const Send_file = ({ emailList }) => {
 
     const sendEmail = (e) => {
 
+    
         e.preventDefault();
         if(emailList.length === 0){
-            alert("לא נמצאו ערכים מתאימים");
+            alert("לא נמצאו ערכים מתאימים העונים על הדרישות");
             navigate("/filter")
             return;
         }
        
-
         uniquemailList.forEach(email => emailjs.send('service_oakhkpq', 'template_3bex2m5', { user_email: email, title: title, job_title: job_title, requiments: requiments, hour: hour }, 'Rb2DWcm67GEe5DHn-')
         .then((result) => {
                 navigate("/list");

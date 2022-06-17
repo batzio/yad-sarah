@@ -12,8 +12,6 @@ import { Form } from "react-bootstrap"
 export const Filter  = ({ setEmailList })   => {
 
     const contactRef = collection(firestore, "Contacts");
-    const [callData, setCallData] = useState([]);
-    const [filter, setFilter] = useState('');
     const [district, setDistrict] = useState('');
     const [city, setCity] = useState('');
     const [domain, setDomain] = useState('');
@@ -31,7 +29,6 @@ export const Filter  = ({ setEmailList })   => {
             return
         }
         else if ((district.trim().length === 0) && (city.trim().length === 0)) {
-            console.log("test")
             q = query(contactRef, where("domain", "==", domain))
             const snapshot = await getDocs(q);
             setEmailList([]);
@@ -40,7 +37,6 @@ export const Filter  = ({ setEmailList })   => {
 
         }
         else if ((domain.trim().length === 0) && (city.trim().length === 0)) {
-            console.log("test")
             q = query(contactRef, where("district", "==", district))
             const snapshot = await getDocs(q);
             setEmailList([]);
@@ -49,7 +45,6 @@ export const Filter  = ({ setEmailList })   => {
 
         }
         else if ((domain.trim().length === 0) && (district.trim().length === 0)) {
-            console.log("test")
             q = query(contactRef, where("city", "==", city))
             const snapshot = await getDocs(q);
             setEmailList([]);
@@ -59,7 +54,6 @@ export const Filter  = ({ setEmailList })   => {
         }
 
         else if ((district.trim().length === 0)) {
-            console.log("test")
             q = query(contactRef, where("city", "==", city), where("domain", "==", domain))
             const snapshot = await getDocs(q);
             setEmailList([]);
@@ -67,7 +61,6 @@ export const Filter  = ({ setEmailList })   => {
             navigate('/send-file')
         }
         else if ((city.trim().length === 0)) {
-            console.log("test")
             q = query(contactRef, where("district", "==", district), where("domain", "==", domain))
             const snapshot = await getDocs(q);
             setEmailList([]);
@@ -75,7 +68,6 @@ export const Filter  = ({ setEmailList })   => {
             navigate('/send-file')
         }
         else if ((domain.trim().length === 0)) {
-            console.log("test")
             q = query(contactRef, where("city", "==", city), where("district", "==", district))
             const snapshot = await getDocs(q);
             setEmailList([]);
@@ -89,6 +81,7 @@ export const Filter  = ({ setEmailList })   => {
         snapshot.forEach(item => { console.log(item.data()); setEmailList(prev => [...prev, item.data().emailOfCoordinator]) });
         navigate('/send-file')
       }
+      
     }
 
 
@@ -122,7 +115,7 @@ export const Filter  = ({ setEmailList })   => {
                     <form id="filter1" type="email" required >
 
                         <br />
-                        <label for="dname"></label>
+                        <label ></label>
 
                         <input id="sdomain" name="sdomain" placeholder="בחר תחום" value={domain} onChange={(e) => setDomain(e.target.value)}  />
                         <br />

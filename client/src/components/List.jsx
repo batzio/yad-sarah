@@ -8,7 +8,6 @@ import { async } from "@firebase/util";
 import { Icon } from '@iconify/react';
 import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
-// import { Add_contact } from "./Add_contact";
 
 
 export const List = () => {

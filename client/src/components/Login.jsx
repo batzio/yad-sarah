@@ -1,5 +1,5 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
-import React, { useRef, useState,Image } from 'react'
+import React, { useRef, useState, Image } from 'react'
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase/firebase";
 
@@ -23,25 +23,35 @@ export const Login = (props) => {
     }
 
     return (
-      <div className="img">
-        <div dir="rtl">
+        <div className="img">
+            <div dir="rtl">
                 <img id="pic1"
                     src="https://serviced.co.il/wp-content/uploads/2022/01/%D7%A6%D7%95%D7%A8-%D7%A7%D7%A9%D7%A8-%D7%A9%D7%99%D7%A8%D7%95%D7%AA-%D7%9C%D7%A7%D7%95%D7%97%D7%95%D7%AA-%D7%99%D7%93-%D7%A9%D7%A8%D7%94.png" />
-            <div className="container">
-                <form action="/action_page.php">
-                    <div className="row">
-                        <div className="center">
-                            <div className="hide-md-lg">
+                <div className="grid">
+
+                    <form action="/" method="post" className="form login">
+
+                        <header className="login__header"><h3 className="login__title">כניסה לאתר</h3></header>
+
+                        <div className="login__body">
+                            <div className="form__field">
+                                <input value={username} type="email" onChange={(e) => setUsername(e.target.value)} placeholder="אימייל" required />
                             </div>
-                            <input value={username} onChange={(e) => setUsername(e.target.value)} type="text" name="username" placeholder="שם משתמש" required />
-                            <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" name="passwor d" placeholder="סיסמה" required />
-                            <button className="button_login" onClick={handleClick}>התחברות</button>
-                            {error ? <p className="error">{error}</p> : null}
+                            <div className="form__field">
+                                <input value={password}  type="password" onChange={(e) => setPassword(e.target.value)} placeholder="סיסמה" required />
+                            </div>
+                            <br></br><br></br>
+                            <button id="btnlogin" onClick={handleClick}>התחברות</button>
+
+                            
                         </div>
-                    </div>
-                </form>
-            </div>
+                        
+                    </form>
+
+                </div>
+                {error ? <p className="error">{error}</p> : null}
             </div>
         </div>
+
     )
 }

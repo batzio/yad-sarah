@@ -92,6 +92,7 @@ body {
   background-position: center;
   background-size: cover;
   
+  
 }
 
 * {
@@ -130,6 +131,23 @@ textarea {
 
 }
 
+#btnlogin{
+ 
+  background-color: #1C6BB4;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 15px;
+  justify-content: center;
+  display: flex;
+  text-align: center;
+  margin: auto;
+  display: grid;
+}
+
+
 #btnDel{
   border: none;
   cursor: pointer;
@@ -142,15 +160,7 @@ textarea {
   
 }
 
-#btnEdit{
-  border: none;
-  cursor: pointer;
-  background-color: #c8c6c6;
-  font-size: 20px;
-  border-radius: 4px;
-margin-right: 1px;
-  
-}
+
 
 #textarea_s{
   font-family:Arial;
@@ -345,4 +355,72 @@ select {
   font-size: x-large;
   text-align: right;
 }
+
+
+.login__header {
+  background-color: #E5103A;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  color: #fff;
+  padding: 1.5em;
+  text-align: center;
+  text-transform: uppercase;
+  margin-left: 550px;
+  margin-right: 550px;
+}
+
+.login__title {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.login__body {
+  background-color:rgb(227, 227, 227);
+  padding: 1.5em;
+  position: relative;
+  padding-bottom: 40px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  margin-left: 550px;
+  margin-right: 550px;
+}
+
+.login__body::before {
+  background-color: rgb(227, 227, 227);
+  content: '';
+  height: 0.5em;
+  left: 50%;
+  margin-left: -0.25em;
+  margin-top: -0.25em;
+  position: absolute;
+  top: 0;
+  transform: rotate(45deg);
+  width: 0.5em;
+}
+
+
+.login input[type='email'],
+.login input[type='password'] {
+  border: 0.0625em solid #e5e5e5;
+  padding: 1em 1.25em;
+}
+
+
+.login input[type='email'] {
+  background-color: #D6D1D1;
+  border-top-left-radius: var(--loginInputBorderRadius);
+  border-top-right-radius: var(--loginInputBorderRadius);
+}
+
+
+/* .login input[type='password'] {
+  background-color: rgb(255, 255, 255);
+  border-bottom-left-radius: var(--loginInputBorderRadius);
+  border-bottom-right-radius: var(--loginInputBorderRadius);
+  border-top: 0;
+}  */
+
+
+
+
 
