@@ -82,7 +82,6 @@ export const Filter = ({ setEmailList }) => {
             snapshot.forEach(item => { console.log(item.data()); setEmailList(prev => [...prev, item.data().emailOfCoordinator]) });
             navigate('/send-file')
         }
-        console.log("else")
        if ((domain.trim().length !== 0) && (district.trim().length !== 0) && (city.trim().length !== 0)) {
             q = query(contactRef, where("district", "==", district), where("city", "==", city), where("domain", "==", domain));
         const snapshot = await getDocs(q);

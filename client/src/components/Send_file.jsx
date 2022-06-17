@@ -7,7 +7,7 @@ import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 
 
 export const Send_file = ({ emailList }) => {
-    console.log(emailList)
+   
 
     const [title, setTitle] = useState('');
     const [job_title, setJobTitle] = useState('');
@@ -16,18 +16,23 @@ export const Send_file = ({ emailList }) => {
 
 
     const navigate = useNavigate();
+    var uniquemailList = [];
+    uniquemailList = emailList.filter(function(item, pos, self) {
+    return self.indexOf(item) == pos;
+   })
 
 
     const sendEmail = (e) => {
-        
-        var send=1;
+
         e.preventDefault();
         if(emailList.length === 0){
             alert("לא נמצאו ערכים מתאימים");
             navigate("/filter")
             return;
         }
-        emailList.forEach(email => emailjs.send('service_oakhkpq', 'template_3bex2m5', { user_email: email, title: title, job_title: job_title, requiments: requiments, hour: hour }, 'Rb2DWcm67GEe5DHn-')
+       
+
+        uniquemailList.forEach(email => emailjs.send('service_oakhkpq', 'template_3bex2m5', { user_email: email, title: title, job_title: job_title, requiments: requiments, hour: hour }, 'Rb2DWcm67GEe5DHn-')
         .then((result) => {
                 navigate("/list");
             }, (error) => {
