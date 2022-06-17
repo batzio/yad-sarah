@@ -9,7 +9,7 @@ import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import { Form } from "react-bootstrap"
 
 
-export const Filter = ({ setEmailList }) => {
+export const Filter  = ({ setEmailList })   => {
 
     const contactRef = collection(firestore, "Contacts");
     const [callData, setCallData] = useState([]);
@@ -119,7 +119,7 @@ export const Filter = ({ setEmailList }) => {
                     </SideNav>
                 </div>
                 <div className="container">
-                    <form id="filter1" type="email" ref={contactRef} required >
+                    <form id="filter1" type="email" required >
 
                         <br />
                         <label for="dname"></label>
