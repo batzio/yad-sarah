@@ -19,18 +19,23 @@ export const Send_file = ({ emailList }) => {
 
 
     const sendEmail = (e) => {
+        var send=1;
         e.preventDefault();
+        if(emailList.length === 0){
+            alert("לא נמצאו ערכים מתאימים");
+            navigate("/filter")
+            return;
+        }
         emailList.forEach(email => emailjs.send('service_oakhkpq', 'template_3bex2m5', { user_email: email, title: title, job_title: job_title, requiments: requiments, hour: hour }, 'Rb2DWcm67GEe5DHn-')
-            .then((result) => {
-                console.log(result.text);
-                alert("ההודעה נשלחה בהצלחה", result.text)
+        .then((result) => {
                 navigate("/list");
             }, (error) => {
                 console.log(error.text);
-                alert("ארעה שגיאה נסה שנית", error.text);
-
+                alert("ארעה שגיאה נסה שנית");
+                navigate("/filter")
             }))
-
+            alert("ההודעה נשלחה בהצלחה")
+            navigate("/list");
     };
 
     return (
