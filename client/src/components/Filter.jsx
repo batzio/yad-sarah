@@ -1,3 +1,5 @@
+
+
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { Link, useNavigate } from "react-router-dom"
 import { firestore } from "../firebase/firebase";
@@ -6,8 +8,6 @@ import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/rea
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import { Form } from "react-bootstrap"
 
-// import { useForm } from "react-hook-form";
-//  import { useForm } from "form-control-react";
 
 export const Filter = ({ setEmailList }) => {
 
@@ -21,7 +21,6 @@ export const Filter = ({ setEmailList }) => {
 
 
     const navigate = useNavigate();
-    //  = undefined;
 
 
     const handleSearch = async () => {
@@ -121,14 +120,12 @@ export const Filter = ({ setEmailList }) => {
                     </SideNav>
                 </div>
                 <div className="container">
-                    {/* <Form.Control id="filter1"  type="email" ref={contactRef} required isInvalid> */}
                     <form id="filter1" type="email" ref={contactRef} required >
 
                         <br />
                         <label for="dname"></label>
 
                         <input id="sdomain" name="sdomain" placeholder="בחר תחום" value={domain} onChange={(e) => setDomain(e.target.value)}  />
-                        {/* <Form.Control id="filter1"  type="email" ref={contactRef} required isInvalid></Form.Control> */}
                         <br />
 
                         <br />

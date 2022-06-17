@@ -19,6 +19,7 @@ export const Send_file = ({ emailList }) => {
 
 
     const sendEmail = (e) => {
+        
         var send=1;
         e.preventDefault();
         if(emailList.length === 0){
