@@ -7,7 +7,6 @@ import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 
 
 export const Send_file = ({ emailList }) => {
-   
 
     const [title, setTitle] = useState('');
     const [job_title, setJobTitle] = useState('');
@@ -17,31 +16,30 @@ export const Send_file = ({ emailList }) => {
 
     const navigate = useNavigate();
     var uniquemailList = [];
-    uniquemailList = emailList.filter(function(item, pos, self) {
-    return self.indexOf(item) == pos;
-   })
+    uniquemailList = emailList.filter(function (item, pos, self) {
+        return self.indexOf(item) == pos;
+    })
 
 
     const sendEmail = (e) => {
 
-    
         e.preventDefault();
-        if(emailList.length === 0){
+        if (emailList.length === 0) {
             alert("לא נמצאו ערכים מתאימים העונים על הדרישות");
             navigate("/filter")
             return;
         }
-       
-        uniquemailList.forEach(email => emailjs.send('service_oakhkpq', 'template_3bex2m5', { user_email: email, title: title, job_title: job_title, requiments: requiments, hour: hour }, 'Rb2DWcm67GEe5DHn-')
-        .then((result) => {
+
+        uniquemailList.forEach(email => emailjs.send('service_zpq17bq', 'template_9dyofit', { user_email: email, title: title, job_title: job_title, requiments: requiments, hour: hour }, 't8iXtukSCOBFop9nQ')
+            .then((result) => {
                 navigate("/list");
             }, (error) => {
                 console.log(error.text);
                 alert("ארעה שגיאה נסה שנית");
                 navigate("/filter")
             }))
-            alert("ההודעה נשלחה בהצלחה")
-            navigate("/list");
+        alert("ההודעה נשלחה בהצלחה")
+        navigate("/list");
     };
 
     return (
